@@ -1,0 +1,99 @@
+/* Conteneur de la page d'inscription */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* Assure que la page occupe toute la hauteur */
+  background-color: #f4f4f4;  /* Optionnel : un fond léger */
+}
+
+/* Boîte d'inscription */
+.register-box {
+  width: 100%;
+  max-width: 400px;  /* Limiter la largeur du cadre */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;  /* Bord arrondi */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Ombre pour donner l'effet de cadre */
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Formulaire */
+.form-group {
+  margin: 15px 0;
+  text-align: left;
+}
+
+label {
+  font-size: 1rem;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+button.register-btn {
+  background-color: #D05252;
+  color: white !important;
+  border: none;
+  border-radius: 25px;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(208, 82, 82, 0.3);
+  margin-top: 20px;
+}
+
+button.register-btn:hover {
+  background-color: #b84242;
+  box-shadow: 0 6px 15px rgba(208, 82, 82, 0.5);
+  transform: translateY(-2px);
+}
+
+button.register-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
+}
+
+/* Lien pour se connecter */
+.login-link {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.login-link a {
+  text-decoration: none;
+  color: #D05252;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+.role-selection {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.role-selection label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
