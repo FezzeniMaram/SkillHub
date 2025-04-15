@@ -13,9 +13,16 @@ import { MatToolbarModule} from "@angular/material/toolbar";
 import { HeaderComponent } from './header/header.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { InscrireComponent } from './inscrire/inscrire.component';
 import { MatDialogModule} from "@angular/material/dialog";
 import {HttpClientModule} from "@angular/common/http";
+import { InscrireEtudiantComponent } from './inscrire-etudiant/inscrire-etudiant.component';
+import { InscrireTuteurComponent } from './inscrire-tuteur/inscrire-tuteur.component';
+import { ChoixInscriptionComponent } from './choix-inscription/choix-inscription.component';
+import { FooterComponent } from './footer/footer.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { AProposComponent } from './a-propos/a-propos.component';
+import { ContactComponent } from './contact/contact.component';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +30,17 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     ConnexionComponent,
     AccueilComponent,
-    InscrireComponent
+    InscrireEtudiantComponent,
+    InscrireTuteurComponent,
+    ChoixInscriptionComponent,
+    FooterComponent,
+    AProposComponent,
+    ContactComponent,
+    CoursesComponent
   ],
   imports: [
     MatToolbarModule,
-MatIconModule,
+    MatIconModule,
     BrowserModule,
     MatCardModule,
     MatFormFieldModule,
@@ -37,8 +50,8 @@ MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

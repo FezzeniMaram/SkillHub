@@ -1,0 +1,23 @@
+<div class="login-container">
+  <div class="login-box">
+    <h2>Inscription Étudiant</h2>
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+      <div class="form-group">
+        <label for="nomEtudiant">Nom</label>
+        <input type="text" id="nomEtudiant" name="nomEtudiant" [(ngModel)]="etudiant.nomEtudiant" required />
+      </div>
+
+      <div class="form-group">
+        <label for="emailEtudiant">Email</label>
+        <input type="email" id="emailEtudiant" name="emailEtudiant" [(ngModel)]="etudiant.emailEtudiant" required />
+      </div>
+
+      <div class="form-group">
+        <label for="motPasseEtudiant">Mot de passe</label>
+        <input type="password" id="motPasseEtudiant" name="motPasseEtudiant" [(ngModel)]="etudiant.motPasseEtudiant" required />
+      </div>
+
+      <button type="submit" class="login-btn" [disabled]="form.invalid">S'inscrire</button>
+    </form>
+  </div>
+</div>

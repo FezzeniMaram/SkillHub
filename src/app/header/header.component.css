@@ -1,7 +1,7 @@
 /* Style général du header */
 .header {
   width: 100%;
-  background: transparent;
+  background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;  /* Permet de le fixer en haut */
   top: 0;  /* Toujours en haut de la page */
@@ -16,7 +16,11 @@
   justify-content: space-between;
   padding: 10px 20px;
 }
+img{
+  height: 75px;
+  width: 120px;
 
+}
 /* Logo SkillHub */
 .logo {
   font-size: 1.5rem;
@@ -48,7 +52,7 @@
 
 /* Effet au survol */
 .nav-links  a:hover {
-  background-color: #D05252;
+  background-color: #FF5A5A;
   color: white;
   box-shadow: 0 4px 10px rgba(208, 82, 82, 0.3);
   transform: translateY(-2px);
@@ -57,7 +61,7 @@
 
 /* Bouton de connexion moderne */
 .login-btn {
-  background-color: #D05252;
+  background-color: #FF7070;
   color: white !important;
   border: none;
   border-radius: 25px;
@@ -72,9 +76,9 @@
 
 /* Effet au survol */
 .login-btn:hover {
-  background-color: #b84242;
+  background-color: #FF5A5A;
   box-shadow: 0 6px 15px rgba(208, 82, 82, 0.5);
-  transform: translateY(-2px);
+  transform: translateY(-5px);
 }
 
 /* Effet au clic */
@@ -85,7 +89,7 @@
 
 
 mat-icon {
-  color: #D05252;
+  color: #FF7070;
 }
 
 .nav-links a:hover mat-icon {

@@ -1,0 +1,410 @@
+/* Scroll fluide */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========== Section Hero ========== */
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+.hero {
+  background: linear-gradient(to right, #fdfcff, #f4f7fe);
+  padding: 80px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+.hero {
+  background: linear-gradient(to right, #fdfcff, #f4f7fe);
+  padding: 80px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-left {
+  max-width: 550px;
+}
+
+.subtitle {
+  color: #999;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 42px;
+  color: #2d2d2d;
+  margin-bottom: 20px;
+}
+
+.title .highlight {
+  color: #7D59F3; /* Nouveau bleu violet */
+}
+
+.description {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.hero-buttons .btn {
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 15px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(125, 89, 243, 0.3); /* ombre subtile */
+}
+
+/* Bouton Connexion (rose) */
+.btn.primary {
+  background-color: #FF7070;
+  color: white;
+  border: none;
+}
+
+.btn.primary:hover {
+  background-color: #FF5A5A;
+  box-shadow: 0 6px 15px rgba(208, 82, 82, 0.5);
+  transform: translateY(-5px);
+}
+
+.btn.primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
+}
+
+/* Bouton Inscrire (border + texte rose) */
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #FF7070;
+  color: #FF7070;
+}
+
+.btn.secondary:hover {
+  background-color: #FF7070;
+  color: white;
+  box-shadow: 0 6px 15px rgba(208, 82, 82, 0.5);
+  transform: translateY(-5px);
+}
+
+.btn.secondary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
+}
+
+
+.hero-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image {
+  position: relative;
+  width: 300px;
+  height: auto;
+}
+
+.main-image img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.badge {
+  position: absolute;
+  bottom: -15px;
+  left: -20px;
+  background-color: #7D59F3; /* Nouveau bleu violet */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+.sub-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.sub-images
+
+.intro {
+  max-width: 500px;
+  text-align: left;
+}
+
+.intro h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.intro p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.logo-img img {
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.logo-img img:hover {
+  transform: scale(1.05);
+}
+
+/* ========== Section Services ========== */
+.services {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 280px;
+  padding: 30px 20px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card.blue {
+  background-color: #7D59F3;
+}
+
+.card.yellow {
+  background-color: #FDD85D;
+  color: #000;
+}
+
+.card.pink {
+  background-color: #FF7070;
+}
+
+/* ========== Section À propos ========== */
+.about-modern-section {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.about-modern-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.08);
+}
+
+.about-text {
+  max-width: 550px;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  color: #FF7070;
+  margin-bottom: 20px;
+}
+
+.about-text h2 span {
+  color: #333;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* ========== Section Contact ========== */
+.contact {
+  background: #f4f4f4;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.contact form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.contact button {
+  background: #FF7070;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact button:hover {
+  background: #FF5A5A;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  .hero-content,
+  .about-modern-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro {
+    text-align: center;
+  }
+
+  .logo-img img,
+  .about-image img {
+    width: 200px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+/* Section Statistiques */
+.statistics {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+}
+.stat-card h3 {
+  font-size: 32px;
+  color: #D05252;
+}
+.stat-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Section Avis utilisateurs */
+.testimonials {
+  padding: 80px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+.testimonial-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+.testimonial {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+.testimonial img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.testimonial p {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 10px;
+}
+.testimonial span {
+  font-size: 14px;
+  color: #888;
+}

@@ -1,0 +1,58 @@
+/* Structure pour forcer le footer en bas */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenu Angular (le router) prend l’espace restant */
+router-outlet {
+  flex: 1;
+  display: block;
+}
+
+/* Ton style de footer existant */
+.footer {
+  background-color: #f4f4f4;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  margin-top: auto; /* ceci remplace le margin-top: 40px */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer-content p {
+  color: #666;
+  margin: 10px 0;
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #FF7070;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #FF5A5A;
+  text-decoration: underline;
+}

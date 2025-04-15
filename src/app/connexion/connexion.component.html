@@ -5,19 +5,35 @@
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" ngModel required />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+        />
       </div>
 
       <div class="form-group">
         <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password" ngModel required />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+          required
+        />
       </div>
 
-      <button type="submit" mat-button class="login-btn">Se connecter</button>
+      <button type="submit" class="login-btn" [disabled]="loginForm.invalid">
+        Se connecter
+      </button>
     </form>
 
     <div class="signup-link">
-      <p>Pas encore de compte ? <a routerLink="/inscrire">S'inscrire</a></p>
+      <p>Pas encore de compte ?
+        <a routerLink="/choixInscrire">S'inscrire</a>
+      </p>
     </div>
   </div>
 </div>
