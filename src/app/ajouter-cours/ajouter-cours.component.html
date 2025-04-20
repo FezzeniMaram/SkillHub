@@ -1,0 +1,49 @@
+<div class="page-container">
+<app-header></app-header>
+
+<main class="main-content">
+  <section class="ajouter-cours-section">
+    <div class="form-container">
+      <h2>Ajouter un nouveau cours</h2>
+
+      <form (ngSubmit)="onSubmit()" #coursForm="ngForm">
+        <div class="form-group">
+          <label for="titre">Titre du cours</label>
+          <input
+            type="text"
+            id="titre"
+            name="titreCours"
+            [(ngModel)]="cours.titreCours"
+            required
+            placeholder="Ex: Angular pour débutants"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="descriptionCours"
+            [(ngModel)]="cours.descriptionCours"
+            required
+            rows="5"
+            placeholder="Décrivez le contenu de ce cours..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label >Image du cours</label>
+          <input type="file" (change)="onFileSelected($event)" />
+        </div>
+
+        <button class="ajouter-btn" type="submit" [disabled]="!coursForm.form.valid">
+          Publier le cours
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
+
+</div>

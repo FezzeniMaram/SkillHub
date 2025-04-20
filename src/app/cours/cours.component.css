@@ -1,0 +1,106 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+html, body {
+  height: 100%;
+}
+.courses-section {
+  padding: 50px 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-container img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.course-info {
+  padding: 20px;
+}
+
+.categorie {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.titre {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #7d59f3;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+}
+
+.inscrire-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px 0;
+  background-color: #fdd85d;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(125, 89, 243, 0.3);
+}
+
+.inscrire-btn:hover {
+  background-color: #e6c148;
+  transform: translateY(-2px);
+}
+
+.inscrire-btn:active {
+  transform: translateY(1px);
+}
+
+.add-icon {
+  font-size: 20px;
+}
+
+
+.inscrire-btn[disabled] {
+  background-color: #eee;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}

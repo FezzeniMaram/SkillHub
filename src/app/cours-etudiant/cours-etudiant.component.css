@@ -1,0 +1,104 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.courses-section {
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.course-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  width: 280px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-container {
+  height: 160px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.course-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.course-info .titre {
+  color: #7d59f3;
+  margin-bottom: 10px;
+}
+
+.course-info .description {
+  font-size: 14px;
+  color: #555;
+}
+
+.message-vide {
+  text-align: center;
+  color: #777;
+  margin-top: 40px;
+}
+.supprimer-btn {
+  margin-top: 10px;
+  background-color: #ff5c5c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.supprimer-btn:hover {
+  background-color: #e04545;
+}
+
+.delete-icon {
+  font-size: 18px;
+}
+

@@ -1,0 +1,47 @@
+<div class="page-container">
+
+<app-header></app-header>
+
+<main class="main-content">
+  <section class="courses-section">
+    <div class="container">
+      <h2>Mes cours publiés</h2>
+
+      <div class="ajouter-cours-btn-container">
+        <button class="ajouter-cours-btn" routerLink="/ajouterCours">
+          <mat-icon>add_circle</mat-icon>
+          Ajouter un cours
+        </button>
+      </div>
+
+      <div *ngIf="cours.length === 0" class="message-vide">
+        <p>Vous n'avez publié aucun cours.</p>
+      </div>
+
+      <div class="grid" *ngIf="cours.length > 0">
+        <div class="course-card" *ngFor="let c of cours">
+          <div class="image-container">
+            <img [src]="getImageUrl(c.imagePath)" (error)="onImageError($event)" alt="Cours">
+          </div>
+
+          <div class="course-info">
+            <h3>{{ c.titreCours }}</h3>
+            <p>{{ c.descriptionCours }}</p>
+
+            <div class="course-actions">
+              <button class="modifier-btn" [routerLink]="['/modifierCours', c.idCour]">
+                <mat-icon>edit</mat-icon> Modifier
+              </button>
+              <button class="supprimer-btn" (click)="supprimerCours(c.idCour)">
+                <mat-icon>delete</mat-icon> Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
+</div>

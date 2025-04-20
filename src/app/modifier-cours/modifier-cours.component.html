@@ -1,0 +1,25 @@
+<div class="page-container">
+<app-header></app-header>
+
+<div class="page-container">
+  <div class="form-container">
+    <h2>Modifier le cours</h2>
+
+    <form (ngSubmit)="onSubmit()">
+      <label for="titre">Titre du cours</label>
+      <input type="text" id="titre" [(ngModel)]="cours.titreCours" name="titreCours" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" [(ngModel)]="cours.descriptionCours" name="descriptionCours" rows="5" required></textarea>
+
+      <label for="image">Changer l'image (facultatif)</label>
+      <input type="file" id="image" (change)="onFileSelected($event)">
+
+      <button type="submit" class="modifier-btn">Enregistrer les modifications</button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+</div>

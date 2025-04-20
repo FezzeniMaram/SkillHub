@@ -1,0 +1,152 @@
+/* Structure de la page */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Titre */
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Bouton Ajouter un cours */
+.ajouter-cours-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.ajouter-cours-btn {
+  background-color: #FDD85D;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ajouter-cours-btn:hover {
+  background-color: #e6c148;
+}
+
+/* Grille des cours */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Carte de cours */
+.course-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  width: 280px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image du cours */
+.image-container {
+  height: 160px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info cours */
+.course-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.course-info h3 {
+  color: #7d59f3;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.course-info .description {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Message si aucun cours */
+.message-vide {
+  text-align: center;
+  color: #777;
+  margin-top: 40px;
+}
+
+
+.course-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.modifier-btn,
+.supprimer-btn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.modifier-btn {
+  background-color: #fdd85d;
+  color: #333;
+}
+
+.modifier-btn:hover {
+  background-color: #e6c148;
+}
+
+.supprimer-btn {
+  background-color: #ff5c5c;
+  color: white;
+}
+
+.supprimer-btn:hover {
+  background-color: #e04545;
+}
