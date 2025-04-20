@@ -51,6 +51,7 @@ export class AjouterCoursComponent {
       error: () => {
         alert('❌ Erreur lors de l’ajout du cours.');
       }
+
     });
   }
 }
