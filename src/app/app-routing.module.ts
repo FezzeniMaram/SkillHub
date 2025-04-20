@@ -9,7 +9,12 @@ import {InscrireTuteurComponent} from "./inscrire-tuteur/inscrire-tuteur.compone
 import {FooterComponent} from "./footer/footer.component";
 import {AProposComponent} from "./a-propos/a-propos.component";
 import {ContactComponent} from "./contact/contact.component";
-import {CoursesComponent} from "./courses/courses.component";
+import {ProfileEtudiantComponent} from "./profile-etudiant/profile-etudiant.component";
+import {CoursEtudiantComponent} from "./cours-etudiant/cours-etudiant.component";
+import {CoursTuteurComponent} from "./cours-tuteur/cours-tuteur.component";
+import {CoursComponent} from "./cours/cours.component";
+import {AjouterCoursComponent} from "./ajouter-cours/ajouter-cours.component";
+import {ModifierCoursComponent} from "./modifier-cours/modifier-cours.component";
 
 
 const routes: Routes = [
@@ -23,7 +28,14 @@ const routes: Routes = [
   { path: 'inscrireTuteur', component: InscrireTuteurComponent},
   { path: 'apropos', component: AProposComponent},
   { path: 'contact', component: ContactComponent},
-  { path: 'courses', component: CoursesComponent}
+  { path: 'profileEtudiant', component: ProfileEtudiantComponent},
+  { path: 'coursTuteur', component: CoursTuteurComponent},
+  { path: 'coursEtudiant', component: CoursEtudiantComponent},
+  { path: 'cours', component: CoursComponent},
+  { path: 'ajouterCours', component: AjouterCoursComponent},
+  { path: 'modifierCours/:id', component: ModifierCoursComponent },
+
+
 
 
 

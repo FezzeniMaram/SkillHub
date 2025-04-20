@@ -14,15 +14,23 @@ import { HeaderComponent } from './header/header.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { MatDialogModule} from "@angular/material/dialog";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { InscrireEtudiantComponent } from './inscrire-etudiant/inscrire-etudiant.component';
 import { InscrireTuteurComponent } from './inscrire-tuteur/inscrire-tuteur.component';
 import { ChoixInscriptionComponent } from './choix-inscription/choix-inscription.component';
 import { FooterComponent } from './footer/footer.component';
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
 import { AProposComponent } from './a-propos/a-propos.component';
 import { ContactComponent } from './contact/contact.component';
-import { CoursesComponent } from './courses/courses.component';
+import { ProfileEtudiantComponent } from './profile-etudiant/profile-etudiant.component';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatMenuModule} from "@angular/material/menu";
+import { CoursTuteurComponent } from './cours-tuteur/cours-tuteur.component';
+import { CoursEtudiantComponent } from './cours-etudiant/cours-etudiant.component';
+import {TokenInterceptor} from "./services/token/token.interceptor";
+import { CoursComponent } from './cours/cours.component';
+import { AjouterCoursComponent } from './ajouter-cours/ajouter-cours.component';
+import { ModifierCoursComponent } from './modifier-cours/modifier-cours.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,12 @@ import { CoursesComponent } from './courses/courses.component';
     FooterComponent,
     AProposComponent,
     ContactComponent,
-    CoursesComponent
+    ProfileEtudiantComponent,
+    CoursTuteurComponent,
+    CoursEtudiantComponent,
+    CoursComponent,
+    AjouterCoursComponent,
+    ModifierCoursComponent
   ],
   imports: [
     MatToolbarModule,
@@ -52,8 +65,16 @@ import { CoursesComponent } from './courses/courses.component';
     MatDialogModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatDividerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

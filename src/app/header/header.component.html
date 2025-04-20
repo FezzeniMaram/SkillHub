@@ -1,24 +1,49 @@
 <header class="header">
-  <nav mat-toolbar class="navbar">
-    <div class="logo" routerLink="/">
-      <img src="../../assets/images/SkillHub.png">
-    </div>
-    <div class="nav-links">
-      <a href="/" mat-button><mat-icon>home</mat-icon> Accueil</a>
-      <a routerLink="/courses" mat-button><mat-icon>school</mat-icon> Cours</a>
-      <a href="/#about" mat-button><mat-icon>info</mat-icon> À propos</a>
-      <a href="/#contact" mat-button><mat-icon>email</mat-icon> Contact</a>
-    </div>
+  <div class="logo" routerLink="/">
+    <img src="../../assets/images/SkillHub.png" alt="SkillHub Logo">
+  </div>
 
-  </nav>
+  <div class="nav-links">
+    <a href="/accueil" mat-button><mat-icon>home</mat-icon> Accueil</a>
+    <a routerLink="/cours" mat-button><mat-icon>school</mat-icon> Cours</a>
+    <a href="/#about" mat-button><mat-icon>info</mat-icon> À propos</a>
+    <a href="/#contact" mat-button><mat-icon>email</mat-icon> Contact</a>
+  </div>
+
+  <!-- Bouton Profil -->
+  <div class="profile-link"  *ngIf="isConnected" (click)="toggleMenu()">
+    <a mat-button>
+      <mat-icon class="person">person</mat-icon>
+      Profil
+    </a>
+  </div>
+
+  <!-- Menu déroulant -->
+  <div class="sub-menu-wrap" [ngClass]="{'open-menu': menuOpen}">
+    <div class="sub-menu">
+      <div class="user-info">
+        <mat-icon class="person">person</mat-icon>
+        <h3>{{ nomUtilisateur }}</h3>
+      </div>
+      <hr>
+
+      <a routerLink="/modifier-profil" class="sub-menu-link">
+        <mat-icon>person</mat-icon>
+        <p>Modifier le profil</p>
+      </a>
+      <a routerLink="/mesCours" class="sub-menu-link" (click)="redirigerVersCours()">
+        <mat-icon>menu_book</mat-icon>
+        <p>Mes Cours</p>
+      </a>
+      <a routerLink="/aide" class="sub-menu-link">
+        <mat-icon>help</mat-icon>
+        <p>Aide & support</p>
+      </a>
+      <a routerLink="/logout" class="sub-menu-link"  (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <p>Déconnexion</p>
+      </a>
+    </div>
+  </div>
+
 </header>
-
-
-
-
-
-
-
-
-
-

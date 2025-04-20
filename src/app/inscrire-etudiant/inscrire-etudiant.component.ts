@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../services/authentification/auth.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-inscrire-etudiant',
@@ -14,30 +14,25 @@ export class InscrireEtudiantComponent {
     motPasseEtudiant: ''
   };
 
-  constructor(private authService: AuthService, private snackBar: MatSnackBar) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     this.authService.registerEtudiant(this.etudiant).subscribe({
       next: (res) => {
-        this.snackBar.open(res.message, 'Fermer', {
-          duration: 3000,
-          panelClass: res.success ? 'snack-success' : 'snack-error',
-          verticalPosition: 'top',
-          horizontalPosition: 'center'
-        });
-
+        alert(res.message); // Affiche le message du backend
         if (res.success) {
-          // Redirection ou nettoyage
-          this.etudiant = { nomEtudiant: '', emailEtudiant: '', motPasseEtudiant: '' };
+          this.etudiant = {
+            nomEtudiant: '',
+            emailEtudiant: '',
+            motPasseEtudiant: ''
+          };
+          this.router.navigate(['/accueil']);
         }
+
       },
+
       error: () => {
-        this.snackBar.open("Erreur côté serveur.", 'Fermer', {
-          duration: 3000,
-          panelClass: 'snack-error',
-          verticalPosition: 'top',
-          horizontalPosition: 'center'
-        });
+        alert('Erreur côté serveur');
       }
     });
   }

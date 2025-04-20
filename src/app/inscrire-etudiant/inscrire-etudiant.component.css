@@ -69,3 +69,8 @@ button.login-btn:active {
   transform: translateY(1px);
   box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
 }
+.error-message {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 5px;
+}

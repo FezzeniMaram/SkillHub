@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {AuthService} from "../services/auth.service";
-import {Router} from "@angular/router";
+import { AuthService } from "../services/authentification/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-connexion',
@@ -11,25 +11,24 @@ export class ConnexionComponent {
   user = {
     email: '',
     password: ''
+
   };
 
-  constructor(private authService: AuthService , private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     this.authService.login(this.user).subscribe({
       next: (response) => {
-        console.log('Réponse backend :', response);
-
+        // 👉 Afficher toujours le message retourné par le backend
+        alert(response.message);
+        console.log('username reçu du backend :', response.username); //
+        // ✅ Naviguer vers AccueilCompte si la connexion est réussie
         if (response.success) {
-          // 🔐 Stocker le token si nécessaire
           localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.role);
-          console.log('Connexion réussie en tant que ' + response.role);
-
-          this.router.navigate(['/accueil']);
-
-        } else {
-          alert('Erreur : ' + response.message);
+          localStorage.setItem('username', response.username);
+          localStorage.setItem('userId', response.id.toString());
+          this.router.navigate(['/accueil']); // ou '/accueil-compte' si c'est ça le nom exact
         }
       },
       error: (error) => {
@@ -38,7 +37,4 @@ export class ConnexionComponent {
       }
     });
   }
-
-
 }
-

@@ -14,10 +14,13 @@
           <p class="description">
             SkillHub vous connecte avec des tuteurs qualifiés, des contenus interactifs et une communauté motivée pour votre réussite.
           </p>
-          <div class="hero-buttons">
-            <a href="connexion" class="btn primary">Connexion</a>
-            <a href="choixInscrire" class="btn secondary">Inscrire</a>
+
+          <div class="hero-buttons" *ngIf="!isConnected">
+            <a routerLink="/connexion" class="btn primary">Connexion</a>
+            <a routerLink="/choixInscrire" class="btn secondary">Inscrire</a>
           </div>
+
+
         </div>
         <div class="hero-right">
           <div class="main-image">
