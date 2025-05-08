@@ -1,0 +1,22 @@
+<div class="support-page">
+  <h2>Support & Aide</h2>
+
+  <!-- FAQ sous forme de cartes -->
+  <div class="faq-container">
+    <div class="faq-card" *ngFor="let faq of faqs">
+      <h4>{{ faq.question }}</h4>
+      <p>{{ faq.answer }}</p>
+    </div>
+  </div>
+
+  <!-- Formulaire de contact -->
+  <div class="form-card">
+    <h3>Contacter le support</h3>
+    <form (ngSubmit)="envoyerMessage()" #supportForm="ngForm">
+      <input type="text" name="nom" [(ngModel)]="form.nom" placeholder="Votre nom" required />
+      <input type="email" name="email" [(ngModel)]="form.email" placeholder="Votre email" required />
+      <textarea name="message" [(ngModel)]="form.message" placeholder="Votre message" rows="5" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</div>

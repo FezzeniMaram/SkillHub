@@ -1,0 +1,107 @@
+<div class="page-container">
+  <app-header></app-header>
+
+  <main class="main-content">
+    <section class="course-details-section">
+      <div class="container">
+
+        <!-- Détails du cours -->
+        <h2>{{ course.titreCours }}</h2>
+        <p>{{ course.descriptionCours }}</p>
+
+        <!-- Tuteur du cours -->
+        <div class="tuteur-info" (click)="voirProfilTuteur(course.idTuteur)">
+          <img
+            *ngIf="course.genderTuteur === 'HOMME'; else femmeIcon"
+            src="assets/images/man.png"
+            alt="Homme"
+            class="gender-icon"
+          />
+          <ng-template #femmeIcon>
+            <img
+              src="assets/images/woman.png"
+              alt="Femme"
+              class="gender-icon"
+            />
+          </ng-template>
+          <span class="tuteur-name">{{ course.nomTuteur }}</span>
+        </div>
+
+
+        <!-- Image stylée -->
+        <div class="image-container">
+          <img
+            [src]="getImageUrl(course.imagePath)"
+            (error)="onImageError($event)"
+            alt="Image du cours"
+          />
+        </div>
+
+        <!-- Liste des Chapitres -->
+        <div *ngIf="chapitres.length > 0">
+          <h3>Chapitres</h3>
+
+          <div *ngFor="let chapitre of chapitres">
+            <div class="chapter-card" (click)="consulterChapitre(chapitre.idchapitre)">
+              <h4>{{ chapitre.titreChapitre }}</h4>
+              <p>{{ chapitre.contenuChapitre }}</p>
+
+              <!-- Actions de chapitre -->
+              <div class="chapter-actions" *ngIf="peutGererChapitre()">
+                <button class="modifier-btn" (click)="modifierChapitre(chapitre.idchapitre); $event.stopPropagation()">
+                  <mat-icon>edit</mat-icon> Modifier
+                </button>
+                <button class="supprimer-btn" (click)="supprimerChapitre(chapitre.idchapitre); $event.stopPropagation()">
+                  <mat-icon>delete</mat-icon> Supprimer
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="chapitres.length === 0">
+          <p>Aucun chapitre ajouté pour ce cours.</p>
+        </div>
+
+        <!-- Ajouter un chapitre -->
+        <div class="add-chapter-btn-container" *ngIf="peutGererChapitre()">
+          <button class="ajouter-chapitre-btn" (click)="ajouterChapitre()">
+            <mat-icon>add</mat-icon> Ajouter un chapitre
+          </button>
+        </div>
+
+        <!-- Commentaires -->
+        <div class="avis-section">
+          <h3>Commentaires</h3>
+
+          <!-- Ajouter un avis -->
+          <textarea
+            [(ngModel)]="nouveauCommentaire"
+            placeholder="Votre commentaire..."
+            rows="3"
+            class="comment-box"
+          ></textarea>
+          <button class="comment-btn" (click)="ajouterCommentaire()">Envoyer</button>
+
+          <!-- Liste des avis -->
+          <div class="comment" *ngFor="let avis of avisList">
+            <div class="comment-info">
+              <strong>{{ avis.auteur }}</strong>
+              <span class="type">{{ avis.typeAuteur }}</span>
+            </div>
+            <p class="comment-text">{{ avis.commentaireAvis }}</p>
+
+            <div class="comment-actions">
+              <button *ngIf="peutModifierCommentaire(avis)" class="edit-btn" (click)="modifierAvis(avis)">Modifier</button>
+              <button *ngIf="peutSupprimerCommentaire(avis)" class="delete-btn" (click)="supprimerAvis(avis.idAvis)">Supprimer</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <app-footer></app-footer>
+</div>

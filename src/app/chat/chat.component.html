@@ -1,0 +1,96 @@
+<div class="conversation-page">
+  <app-header></app-header>
+
+  <main class="conversation-main">
+    <!-- 🟣 Sidebar des conversations -->
+    <div class="sidebar">
+      <div *ngFor="let convo of conversations"
+           class="conversation-item"
+           [class.active]="convo.id === selectedConversationId"
+           (click)="selectConversation(convo)">
+        <!-- Avatar -->
+        <img
+          [src]="convo.interlocuteurGender === 'FEMME' ? 'assets/images/woman.png' : 'assets/images/man.png'"
+          alt="Avatar"
+          class="avatar-img gender-icon"
+        />
+        <!-- Infos -->
+        <div class="conversation-info">
+          <div class="name">{{ convo.interlocuteurNom }}</div>
+          <div class="last-message">{{ convo.lastMessage }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔵 Fenêtre de chat -->
+    <div class="chat-window" *ngIf="selectedConversationId">
+      <!-- 🟡 En-tête -->
+      <div class="chat-header">
+        <div class="left-info">
+          <img
+            [src]="selectedConversation?.interlocuteurGender === 'FEMME' ? 'assets/images/woman.png' : 'assets/images/man.png'"
+            alt="Avatar"
+            class="avatar-img gender-icon"
+          />
+          <span class="chat-user">{{ selectedConversation?.interlocuteurNom }}</span>
+        </div>
+
+        <!-- Menu 3 points -->
+        <div class="menu-button">
+          <button mat-icon-button [matMenuTriggerFor]="chatMenu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #chatMenu="matMenu">
+            <button mat-menu-item (click)="goToProfile()">
+              <mat-icon>person</mat-icon>
+              <span>Voir Profil</span>
+            </button>
+            <button mat-menu-item (click)="masquerConversation()">
+              <mat-icon>delete</mat-icon>
+              <span>Supprimer</span>
+            </button>
+            <button mat-menu-item (click)="bloquerInterlocuteur()">
+              <mat-icon>block</mat-icon>
+              <span>Bloquer</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+
+      <!-- 🔴 Message si bloqué -->
+      <div *ngIf="isBlocked" class="blocked-warning">
+        ⚠️ Vous avez été bloqué dans cette conversation.
+      </div>
+
+      <!-- 💬 Zone des messages -->
+      <div class="chat-body">
+        <div *ngFor="let msg of messages"
+             [ngClass]="{ 'sent': msg.expediteurRole === role, 'received': msg.expediteurRole !== role }"
+             class="message">
+          <div class="bubble">
+            <p>{{ msg.messageChat }}</p>
+            <span class="timestamp">{{ msg.dateChat | date: 'shortTime' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✍️ Footer d'envoi -->
+      <div class="chat-footer" [class.disabled]="isBlocked">
+        <ng-container *ngIf="!isBlocked; else blockedNotice">
+          <input [(ngModel)]="newMessage" type="text" placeholder="Envoyer un message..." />
+          <button (click)="sendMessage()">
+            <mat-icon>send</mat-icon>
+          </button>
+        </ng-container>
+
+        <ng-template #blockedNotice>
+          <div class="blocked-notice">
+            <mat-icon color="warn">block</mat-icon>
+            <span>Vous avez été bloqué, vous ne pouvez pas envoyer de message.</span>
+          </div>
+        </ng-template>
+      </div>
+
+    </div>
+  </main>
+</div>

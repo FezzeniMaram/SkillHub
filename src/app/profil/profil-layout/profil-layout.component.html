@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<div class="profil-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile-header">
+      <div class="profile-header">
+        <img
+          [src]="gender === 'FEMME' ? 'assets/images/woman.png' : 'assets/images/man.png'"
+          alt="profil"
+          width="80"
+          height="80"
+          class="avatar"
+        />
+        <h3>{{ nomUtilisateur }}</h3>
+      </div>
+    </div>
+    <nav>
+      <a routerLink="infos" routerLinkActive="active"><mat-icon>person</mat-icon> Profil</a>
+      <button class="sidebar-link" (click)="allerVersCours()">
+        <mat-icon>school</mat-icon> Mes Cours
+      </button>
+
+      <a routerLink="messagerie" routerLinkActive="active"><mat-icon>chat</mat-icon> Messagerie</a>
+      <a routerLink="blocage" routerLinkActive="active">
+        <mat-icon>block</mat-icon>
+        Blocages
+      </a>
+      <a routerLink="support" routerLinkActive="active"><mat-icon>help</mat-icon> Support</a>
+      <button (click)="logout()"><mat-icon>logout</mat-icon> Déconnexion</button>
+    </nav>
+  </aside>
+
+  <!-- Content -->
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+</div>
+

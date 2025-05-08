@@ -1,0 +1,35 @@
+<div class="page-container">
+  <app-header></app-header>
+
+  <main class="main-content">
+    <div class="chapter-layout">
+      <!-- Zone principale : Vidéo + contenu -->
+      <div class="chapter-content">
+        <h2>{{ chapitre.titreChapitre }}</h2>
+
+        <video
+          width="100%" height="auto" *ngIf="chapitre.videoPath" [src]="getVideoUrl(chapitre.videoPath)" controls>
+        </video>
+
+
+        <div class="contenu">
+          <h3>Contenu</h3>
+          <p>{{ chapitre.contenuChapitre }}</p>
+        </div>
+      </div>
+
+      <!-- Sidebar : autres chapitres -->
+      <div class="sidebar">
+        <h3>Autres Chapitres</h3>
+        <ul>
+          <li *ngFor="let ch of autresChapitres" [class.active]="ch.idchapitre === chapitre.idchapitre">
+            <a [routerLink]="['/chapitre', ch.idchapitre]">{{ ch.titreChapitre }}</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>

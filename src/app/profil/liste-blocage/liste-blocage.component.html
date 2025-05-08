@@ -1,0 +1,16 @@
+<div class="blocage-wrapper">
+  <h2 class="blocage-title">Conversations Bloquées</h2>
+
+  <div *ngIf="blockedConversations.length === 0">
+    ✅ Aucune conversation bloquée.
+  </div>
+
+  <ul *ngIf="blockedConversations.length > 0">
+    <li *ngFor="let convo of blockedConversations" class="blocked-item">
+      <span>
+        {{ role === 'ETUDIANT' ? convo.tuteur?.nomTuteur : convo.etudiant?.nomEtudiant }}
+      </span>
+      <button class="unblock-btn" (click)="debloquer(convo.id)">Débloquer</button>
+    </li>
+  </ul>
+</div>

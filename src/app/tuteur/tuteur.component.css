@@ -1,0 +1,136 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+html, body {
+  height: 100%;
+}
+.tuteur-section-glass {
+  padding: 3rem 2rem;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  margin: 2rem;
+}
+
+.tuteur-header-glass {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 500px;
+}
+
+.avatar-glass {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.header-content h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.header-content p {
+  margin: 0.3rem 0 1rem;
+  color: #555;
+}
+
+.empty-msg-glass {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 2rem 0;
+}
+
+.courses-container-glass {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.course-card-glass {
+  width: 270px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.course-card-glass:hover {
+  transform: translateY(-6px);
+}
+
+.course-card-glass img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.course-text {
+  padding: 1rem;
+}
+
+.course-text h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.course-text p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+.tuteur-header-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: #f9f9f9;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.avatar-tuteur {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #1976d2;
+  object-fit: cover;
+}
+
+.tuteur-details {
+  flex: 1;
+}
+
+.tuteur-details h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.tuteur-details p {
+  margin: 0.5rem 0 1rem;
+  color: #555;
+}

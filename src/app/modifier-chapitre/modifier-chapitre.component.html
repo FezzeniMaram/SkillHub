@@ -1,0 +1,32 @@
+<section class="modifier-chapitre-section">
+      <div class="container">
+        <h2>Modifier le Chapitre</h2>
+
+        <form (ngSubmit)="modifierChapitre()">
+          <div class="form-group">
+            <label for="titre">Titre du chapitre</label>
+            <input
+              type="text"
+              id="titre"
+              [(ngModel)]="chapitre.titreChapitre"
+              name="titreChapitre"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contenu">Contenu</label>
+            <textarea
+              id="contenu"
+              rows="5"
+              [(ngModel)]="chapitre.contenuChapitre"
+              name="contenuChapitre"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="modifier-btn">Modifier le chapitre</button>
+        </form>
+      </div>
+    </section>
+

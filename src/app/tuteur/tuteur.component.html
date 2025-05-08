@@ -1,0 +1,44 @@
+<div class="page-container">
+  <app-header></app-header>
+
+  <main class="main-content">
+    <section class="tuteur-section-glass">
+      <div class="tuteur-header-horizontal">
+        <img
+          *ngIf="genderTuteur === 'HOMME'; else iconFemme"
+          src="assets/images/man.png"
+          alt="Homme"
+          class="avatar-tuteur"
+        />
+        <ng-template #iconFemme>
+          <img src="assets/images/woman.png" alt="Femme" class="avatar-tuteur" />
+        </ng-template>
+
+        <div class="tuteur-details">
+          <h2>{{ nomTuteur }}</h2>
+          <p><strong>Nombre de cours :</strong> {{ nombreCours }}</p>
+          <button mat-raised-button color="primary" (click)="demarrerDiscussion()">
+            <mat-icon>chat</mat-icon> Contacter
+          </button>
+        </div>
+      </div>
+
+
+      <div *ngIf="coursPublies.length === 0" class="empty-msg-glass">
+        <p>Aucun cours publié par ce tuteur pour le moment.</p>
+      </div>
+
+      <div class="courses-container-glass" *ngIf="coursPublies.length > 0">
+        <div class="course-card-glass" *ngFor="let c of coursPublies" (click)="voirDetailsCours(c.idCour)">
+          <img [src]="getImageUrl(c.imagePath)" (error)="onImageError($event)" alt="Cours" />
+          <div class="course-text">
+            <h3>{{ c.titreCours }}</h3>
+            <p>{{ c.descriptionCours }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <app-footer></app-footer>
+</div>

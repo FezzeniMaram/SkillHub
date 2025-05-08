@@ -1,0 +1,91 @@
+/* Titre principal */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Message s'il n'y a aucun blocage */
+div[ngIf] {
+  font-size: 16px;
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+
+/* Liste des utilisateurs bloqués */
+/* Liste des utilisateurs bloqués */
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Élément de liste */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+li:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+/* Nom utilisateur */
+li span {
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+}
+
+/* Bouton Débloquer */
+li button {
+  background-color: #7D59F3;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+li button:hover {
+  background-color: #5f45c3;
+}
+.blocage-wrapper {
+  max-width: 700px;
+  margin: 0 auto; /* ⬅️ centre le bloc */
+  padding: 30px 20px;
+}
+
+.blocage-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blocage-title::before {
+  content: "🔒";
+  font-size: 22px;
+}

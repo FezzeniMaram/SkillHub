@@ -1,0 +1,44 @@
+<div class="page-container">
+  <app-header></app-header>
+
+  <main class="main-content">
+    <div class="profil-page">
+      <h2 class="profil-title">Mon Profil</h2>
+      <br>
+      <div class="profil-icon-wrapper">
+        <div class="icon-circle">
+          <mat-icon class="person-icon">person</mat-icon>
+        </div>
+      </div>
+      <br>
+      <div class="profil-info">
+        <p><strong>Nom :</strong> {{ nom }}</p>
+        <p><strong>Email :</strong> {{ email }}</p>
+      </div>
+<br>
+      <div class="profil-actions">
+        <button class="btn-profil" (click)="activerModifierNom()">Modifier le Nom</button>
+        <button class="btn-profil" (click)="activerModifierMotDePasse()">Modifier le Mot de Passe</button>
+      </div>
+
+      <!-- Formulaire Modifier Nom -->
+      <div *ngIf="modifierNomMode" class="profil-form">
+        <h3>Modifier votre Nom</h3>
+        <input type="password" placeholder="Ancien mot de passe" [(ngModel)]="ancienMotDePasseNom" class="input-profil">
+        <input type="text" placeholder="Nouveau nom" [(ngModel)]="nouveauNom" class="input-profil">
+        <button class="btn-profil" (click)="modifierNomAction()">Valider</button>
+      </div>
+
+      <!-- Formulaire Modifier Mot de Passe -->
+      <div *ngIf="modifierMotDePasseMode" class="profil-form">
+        <h3>Modifier votre Mot de Passe</h3>
+        <input type="password" placeholder="Ancien mot de passe" [(ngModel)]="ancienMotDePasseMdp" class="input-profil">
+        <input type="password" placeholder="Nouveau mot de passe" [(ngModel)]="nouveauMotDePasse" class="input-profil">
+        <button class="btn-profil" (click)="modifierMotDePasseAction()">Valider</button>
+      </div>
+
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>

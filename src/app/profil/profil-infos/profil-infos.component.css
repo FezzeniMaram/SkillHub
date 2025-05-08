@@ -1,0 +1,100 @@
+
+/* Mise à jour pour s'adapter dans un layout avec sidebar */
+.main-content {
+  flex: 1;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  background: #f9f9f9;
+}
+.profil-page {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 80px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  /* 🔄 Animation d'apparition */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInSlide 0.6s ease-out forwards;
+}
+
+@keyframes fadeInSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profil-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+.person-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+mat-icon.person-icon {
+  font-size: 72px;
+  color: #7D59F3;
+}
+
+
+.profil-info {
+  font-size: 18px;
+  margin: 20px 0;
+  color: #444;
+}
+
+.profil-info p {
+  margin: 8px 0;
+}
+
+.profil-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.profil-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-profil {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.btn-profil {
+  padding: 10px 20px;
+  background-color: #fdd85d;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(125, 89, 243, 0.15);
+}
+
+.btn-profil:hover {
+  background-color: #e6c148;
+  transform: translateY(-2px);
+}
