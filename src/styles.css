@@ -1,3 +1,30 @@
 * {
     font-family: 'Roboto', sans-serif;
   }
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Empêche le scroll horizontal global */
+}
+
+.profil-layout {
+  display: flex;
+  min-height: calc(100vh - 70px); /* Adapter selon la hauteur de ton <app-header> */
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  min-height: 100%;
+  background: white;
+  border-right: 1px solid #eee;
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+
+.content {
+  flex: 1;
+  overflow-x: hidden; /* Empêche le scroll horizontal du contenu */
+  padding: 30px;
+  box-sizing: border-box;
+}

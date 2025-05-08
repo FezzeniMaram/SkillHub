@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/authentification/auth.service';
-import {CoursService} from "../services/cours/cours.service";
+import { AuthService } from '../../services/authentification/auth.service';
+import {CoursService} from "../../services/cours/cours.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cours-etudiant',
@@ -11,7 +12,7 @@ export class CoursEtudiantComponent implements OnInit {
   cours: any[] = [];
   idEtudiant: number = 0;
 
-  constructor(private authService: AuthService, private coursService : CoursService) {}
+  constructor(private authService: AuthService, private coursService : CoursService, private router: Router) {}
 
   ngOnInit(): void {
     const storedId = localStorage.getItem('userId');
@@ -68,6 +69,9 @@ export class CoursEtudiantComponent implements OnInit {
     } else {
       alert("ID étudiant manquant.");
     }
+  }
+  consulterCours(idCour: number): void {
+    this.router.navigate(['/cours', idCour]);
   }
 
 }

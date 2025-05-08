@@ -1,0 +1,27 @@
+<section class="cours-page">
+  <h2 class="titre-cours">Mes cours inscrits</h2>
+
+  <div *ngIf="cours.length === 0" class="message-vide">
+    <p>Vous n'êtes inscrit à aucun cours pour le moment.</p>
+  </div>
+
+  <div class="grid" *ngIf="cours.length > 0">
+    <div
+      class="course-card"
+      *ngFor="let cour of cours"
+      (click)="consulterCours(cour.idCour)">
+      <div class="image-container">
+        <img [src]="getImageUrl(cour.imagePath)" (error)="onImageError($event)" alt="Cours" />
+      </div>
+      <div class="course-info">
+        <h3 class="titre">{{ cour.titreCours }}</h3>
+        <p class="description">{{ cour.descriptionCours }}</p>
+
+        <button class="supprimer-btn" (click)="supprimerCours(cour.idCour); $event.stopPropagation()">
+          <mat-icon class="delete-icon">delete</mat-icon>
+          Supprimer le cours
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

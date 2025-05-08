@@ -7,8 +7,10 @@ export interface AuthResponse {
   message: string;
   token: string;
   role: string;
-  username: string; // 👈 ajoute ceci
+  username: string;
   id: number;
+  gender: string;
+  dateNaissance: string;
 }
 
 export interface RegisterResponse {
@@ -25,6 +27,9 @@ export class AuthService {
   private registerUrl = 'http://localhost:8082/api/auth/register';
 
 
+  getUserGender(): string {
+    return localStorage.getItem('gender') || '';
+  }
 
   constructor(private http: HttpClient) {}
   // ✅ Connexion
@@ -51,6 +56,13 @@ export class AuthService {
   // getCoursTuteur(id: number): Observable<any[]> {
   //   return this.http.get<any[]>(`${this.baseUrl}/tuteur/getcours/${id}`);
   // }
+  getUserRole(): string {
+    return localStorage.getItem('role') || '';
+  }
+
+  getUserId(): number {
+    return Number(localStorage.getItem('userId'));
+  }
 
 }
 

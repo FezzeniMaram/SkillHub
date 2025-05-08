@@ -64,4 +64,10 @@ export class CoursService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.baseUrl}/cours/getById/${id}`, { headers });
   }
+  getNombreCoursParTuteur(tuteurId: number): Observable<number> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<number>(`${this.baseUrl}/tuteur/nombreCours/${tuteurId}`, { headers });
+  }
+
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CoursService } from '../services/cours/cours.service';
+import { CoursService } from '../../services/cours/cours.service';
 
 @Component({
   selector: 'app-modifier-cours',
@@ -33,12 +33,12 @@ export class ModifierCoursComponent implements OnInit {
           };
         } else {
           alert("⚠ Cours introuvable !");
-          this.router.navigate(['/mes-cours-tuteur']);
+          this.router.navigate(['/profil/coursTuteur']);
         }
       },
       error: () => {
         alert("❌ Erreur lors du chargement du cours.");
-        this.router.navigate(['/mes-cours-tuteur']);
+        this.router.navigate(['/profil/coursTuteur']);
       }
     });
   }
@@ -59,7 +59,7 @@ export class ModifierCoursComponent implements OnInit {
       next: (res) => {
         if (res.success) {
           alert("✅ Cours modifié avec succès !");
-          this.router.navigate(['/coursTuteur']);
+          this.router.navigate(['/profil/coursTuteur']);
         } else {
           alert("❌ " + res.message);
         }

@@ -1,8 +1,4 @@
-<div class="page-container">
-<app-header></app-header>
-
-<main class="main-content">
-  <section class="ajouter-cours-section">
+<section class="ajouter-cours-section">
     <div class="form-container">
       <h2>Ajouter un nouveau cours</h2>
 
@@ -32,18 +28,16 @@
         </div>
 
         <div class="form-group">
-          <label >Image du cours</label>
-          <input type="file" (change)="onFileSelected($event)" />
+          <label for="image">Image du cours</label>
+          <input type="file" id="image" (change)="onFileSelected($event)" required />
+          <div class="file-name" *ngIf="selectedFile">
+            Fichier sélectionné : {{ selectedFile.name }}
+          </div>
         </div>
 
         <button class="ajouter-btn" type="submit" [disabled]="!coursForm.form.valid">
-          Publier le cours
+          <mat-icon class="btn-icon">add</mat-icon> Publier le Cours
         </button>
       </form>
     </div>
   </section>
-</main>
-
-<app-footer></app-footer>
-
-</div>
