@@ -35,6 +35,29 @@
         </div>
       </div>
 
+      <!-- Date de naissance -->
+      <div class="form-group">
+        <label for="dateNaissanceEtudiant">Date de naissance</label>
+        <input type="date" id="dateNaissanceEtudiant" name="dateNaissanceEtudiant"
+               [(ngModel)]="etudiant.dateNaissanceEtudiant" required #dateCtrl="ngModel" />
+        <div class="error-message" *ngIf="dateCtrl.invalid && dateCtrl.touched">
+          <small *ngIf="dateCtrl.errors?.['required']">La date de naissance est requise.</small>
+        </div>
+      </div>
+
+      <!-- Genre -->
+      <div class="form-group">
+        <label for="gender">Genre</label>
+        <select id="gender" name="gender" [(ngModel)]="etudiant.gender" required #genderCtrl="ngModel">
+          <option value="">Sélectionner</option>
+          <option value="HOMME">HOMME</option>
+          <option value="FEMME">FEMME</option>
+        </select>
+        <div class="error-message" *ngIf="genderCtrl.invalid && genderCtrl.touched">
+          <small *ngIf="genderCtrl.errors?.['required']">Le genre est requis.</small>
+        </div>
+      </div>
+
       <button type="submit" class="login-btn" [disabled]="form.invalid">S'inscrire</button>
     </form>
   </div>
