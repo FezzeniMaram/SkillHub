@@ -11,7 +11,9 @@ export class InscrireEtudiantComponent {
   etudiant = {
     nomEtudiant: '',
     emailEtudiant: '',
-    motPasseEtudiant: ''
+    motPasseEtudiant: '',
+    gender: '',                        // <-- ajouté
+    dateNaissanceEtudiant: ''
   };
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -24,7 +26,9 @@ export class InscrireEtudiantComponent {
           this.etudiant = {
             nomEtudiant: '',
             emailEtudiant: '',
-            motPasseEtudiant: ''
+            motPasseEtudiant: '',
+            gender: '',                        // <-- ajouté
+            dateNaissanceEtudiant: ''
           };
           this.router.navigate(['/accueil']);
         }

@@ -1,76 +1,30 @@
-/* Conteneur de la page */
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f4f4f4;
-}
-
-/* Boîte principale */
-.login-box {
-  width: 100%;
-  max-width: 400px;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-h2 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Formulaire */
-.form-group {
-  margin: 15px 0;
-  text-align: left;
-}
-
-label {
-  font-size: 1rem;
-  color: #333;
-}
-
-input {
+input[type="date"],
+select {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
   border-radius: 25px;
   border: 1px solid #ccc;
   margin-top: 5px;
+  background-color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-button.login-btn {
-  background-color: #FF7070;
-  color: white !important;
-  border: none;
-  border-radius: 25px;
-  height: 50px;
-  padding: 0 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 10px rgba(208, 82, 82, 0.3);
-  margin-top: 20px;
+/* Flèche du select personnalisée (optionnel) */
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
+  background-size: 18px;
 }
 
-button.login-btn:hover {
-  background-color: #FF5A5A;
-  box-shadow: 0 6px 15px rgba(208, 82, 82, 0.5);
-  transform: translateY(-5px);
-}
-
-button.login-btn:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
-}
-.error-message {
-  color: red;
-  font-size: 0.85em;
-  margin-top: 5px;
+/* Adapter le focus */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #FF7070;
+  box-shadow: 0 0 5px rgba(255, 112, 112, 0.5);
 }

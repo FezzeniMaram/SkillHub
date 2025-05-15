@@ -69,3 +69,33 @@ button.login-btn:active {
   transform: translateY(1px);
   box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
 }
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  background-color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Flèche du select personnalisée (optionnel) */
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
+  background-size: 18px;
+}
+
+/* Adapter le focus */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #FF7070;
+  box-shadow: 0 0 5px rgba(255, 112, 112, 0.5);
+}
