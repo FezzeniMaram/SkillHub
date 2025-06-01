@@ -11,7 +11,7 @@
   </div>
 
   <!-- Bouton Profil -->
-  <div class="profile-link">
+  <div class="profile-link"  *ngIf="isConnected" >
     <a mat-button [routerLink]="['/profil/infos']">
       &nbsp;&nbsp;&nbsp; Profil &nbsp;&nbsp;&nbsp;
     </a>

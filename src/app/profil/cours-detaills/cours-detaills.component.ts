@@ -33,6 +33,29 @@ export class CoursDetaillsComponent implements OnInit {
     this.loadChapitres();
     this.loadAvis();
 
+
+
+      this.utilisateurRole = 'TUTEUR';
+      this.utilisateurEmail = 'tuteur@gmail.com';
+      this.course = { emailTuteur: 'tuteur@gmail.com' };
+
+      // Test avec un avis d'un étudiant
+      const avisEtudiant = { emailAuteur: 'etudiant@gmail.com' };
+      console.log('Test avis étudiant :', this.peutSupprimerCommentaire(avisEtudiant));
+
+      // Test avec un avis du tuteur lui-même
+      const avisTuteur = { emailAuteur: 'tuteur@gmail.com' };
+      console.log('Test avis tuteur :', this.peutSupprimerCommentaire(avisTuteur));
+
+      // Test avec un autre rôle / autre email
+      this.utilisateurRole = 'ETUDIANT';
+      this.utilisateurEmail = 'etudiant@gmail.com';
+      console.log('Test étudiant sur son commentaire:', this.peutSupprimerCommentaire(avisEtudiant));
+      console.log('Test étudiant sur commentaire autre:', this.peutSupprimerCommentaire(avisTuteur));
+
+
+
+
   }
 
   loadCoursDetails(): void {
@@ -45,6 +68,8 @@ export class CoursDetaillsComponent implements OnInit {
         console.error('Erreur chargement cours:', err);
       }
     });
+    console.log("Détails du cours reçu :", this.course);
+    console.log("Tuteur du cours :", this.course.tuteur);
 
 
   }
@@ -172,12 +197,25 @@ export class CoursDetaillsComponent implements OnInit {
   }
 
   peutSupprimerCommentaire(avis: any): boolean {
-    return (
-      avis.emailAuteur === this.utilisateurEmail ||
-      (this.utilisateurRole === 'TUTEUR' &&
-        this.course.tuteur?.emailTuteur === this.utilisateurEmail)
-    );
+    console.log('Role utilisateur:', this.utilisateurRole);
+    console.log('Email utilisateur:', this.utilisateurEmail);
+    console.log('Email tuteur du cours:', this.course.emailTuteur);
+    console.log('Email auteur commentaire:', avis.emailAuteur);
+
+    if (this.utilisateurRole === 'TUTEUR' && this.course.emailTuteur === this.utilisateurEmail) {
+      console.log('Tuteur peut supprimer');
+      return true;
+    }
+    if (this.utilisateurRole === 'ETUDIANT' && avis.emailAuteur === this.utilisateurEmail) {
+      console.log('Etudiant peut supprimer son commentaire');
+      return true;
+    }
+    console.log('Pas de droit de suppression');
+    return false;
   }
+
+
+
 
   consulterChapitre(idChapitre: number): void {
     this.router.navigate(['/chapitre', idChapitre]);

@@ -1,24 +1,47 @@
-/* Conteneur de la page de connexion */
+/* Conteneur principal centré */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;  /* Assure que la page occupe toute la hauteur */
-  background-color: #f4f4f4;  /* Optionnel : un fond léger */
+  height: 100vh;
+  background-color: #f4f4f4;
 }
 
-/* Boîte de connexion */
+/* Boîte contenant le logo + formulaire */
 .login-box {
-  width: 100%;
-  max-width: 400px;  /* Limiter la largeur du cadre */
+  display: flex;
   background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Partie gauche : logo */
+.login-left {
+  flex: 1;
+  background-color: #ffF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 30px;
-  border-radius: 10px;  /* Bord arrondi */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  /* Ombre pour donner l'effet de cadre */
+}
+
+.login-left img {
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+}
+
+/* Partie droite : formulaire */
+.login-right {
+  flex: 1;
+  padding: 40px;
   text-align: center;
 }
 
-h2 {
+.login-right h2 {
   font-size: 2rem;
   color: #333;
   margin-bottom: 20px;
@@ -57,12 +80,13 @@ button.login-btn {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(208, 82, 82, 0.3);
   margin-top: 20px;
+  width: 100%;
 }
 
 button.login-btn:hover {
   background-color: #FF5A5A;
   box-shadow: 0 6px 15px rgba(208, 82, 82, 0.5);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 button.login-btn:active {
@@ -70,7 +94,7 @@ button.login-btn:active {
   box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
 }
 
-/* Lien pour s'inscrire */
+/* Lien inscription */
 .signup-link {
   margin-top: 20px;
   font-size: 1rem;
@@ -86,3 +110,19 @@ button.login-btn:active {
   text-decoration: underline;
 }
 
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .login-box {
+    flex-direction: column;
+  }
+
+  .login-left, .login-right {
+    flex: unset;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-left {
+    background-color: #ffeaea;
+  }
+}

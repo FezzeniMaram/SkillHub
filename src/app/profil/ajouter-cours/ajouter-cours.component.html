@@ -1,43 +1,71 @@
 <section class="ajouter-cours-section">
-    <div class="form-container">
-      <h2>Ajouter un nouveau cours</h2>
+  <div class="form-container">
+    <h2>Ajouter un nouveau cours</h2>
 
-      <form (ngSubmit)="onSubmit()" #coursForm="ngForm">
-        <div class="form-group">
-          <label for="titre">Titre du cours</label>
-          <input
-            type="text"
-            id="titre"
-            name="titreCours"
-            [(ngModel)]="cours.titreCours"
-            required
-            placeholder="Ex: Angular pour débutants"
-          />
+    <form (ngSubmit)="onSubmit()" #coursForm="ngForm" novalidate>
+
+      <!-- Titre du cours -->
+      <div class="form-group">
+        <label for="titre">Titre du cours</label>
+        <input
+          type="text"
+          id="titre"
+          name="titreCours"
+          [(ngModel)]="cours.titreCours"
+          required
+          placeholder="Ex: Angular pour débutants"
+          #titreCtrl="ngModel"
+        />
+        <div class="error-message" *ngIf="titreCtrl.invalid && titreCtrl.touched">
+          <small *ngIf="titreCtrl.errors?.['required']">Le titre est requis.</small>
         </div>
+      </div>
 
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea
-            id="description"
-            name="descriptionCours"
-            [(ngModel)]="cours.descriptionCours"
-            required
-            rows="5"
-            placeholder="Décrivez le contenu de ce cours..."
-          ></textarea>
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="descriptionCours"
+          [(ngModel)]="cours.descriptionCours"
+          required
+          rows="5"
+          placeholder="Décrivez le contenu de ce cours..."
+          #descCtrl="ngModel"
+        ></textarea>
+        <div class="error-message" *ngIf="descCtrl.invalid && descCtrl.touched">
+          <small *ngIf="descCtrl.errors?.['required']">La description est requise.</small>
         </div>
+      </div>
 
-        <div class="form-group">
-          <label for="image">Image du cours</label>
-          <input type="file" id="image" (change)="onFileSelected($event)" required />
-          <div class="file-name" *ngIf="selectedFile">
-            Fichier sélectionné : {{ selectedFile.name }}
-          </div>
+      <!-- Image du cours -->
+      <div class="form-group">
+        <label for="image">Image du cours</label>
+        <input
+          type="file"
+          id="image"
+          (change)="onFileSelected($event)"
+          [class.invalid]="!selectedFile && fileInputTouched"
+          (blur)="fileInputTouched = true"
+          required
+        />
+        <div class="error-message" *ngIf="!selectedFile && fileInputTouched">
+          <small>L'image est requise.</small>
         </div>
+        <div class="file-name" *ngIf="selectedFile">
+          Fichier sélectionné : {{ selectedFile.name }}
+        </div>
+      </div>
 
-        <button class="ajouter-btn" type="submit" [disabled]="!coursForm.form.valid">
-          <mat-icon class="btn-icon">add</mat-icon> Publier le Cours
-        </button>
-      </form>
-    </div>
-  </section>
+      <button
+        class="ajouter-btn"
+        type="submit"
+        [disabled]="
+          !coursForm.form.valid || !selectedFile
+        "
+      >
+        <mat-icon class="btn-icon">add</mat-icon> Publier le Cours
+      </button>
+    </form>
+  </div>
+</section>

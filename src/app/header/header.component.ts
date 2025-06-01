@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit{
   role= "";
   isConnected: boolean = false;
   gender: string = 'HOMME';
+  email : string =""
 
   ngOnInit(): void {
     this.gender = localStorage.getItem('gender') || 'HOMME';
@@ -23,6 +24,11 @@ export class HeaderComponent implements OnInit{
     this.nomUtilisateur = localStorage.getItem('username') || 'Utilisateur';
     this.role = localStorage.getItem('role') || '';
     console.log('Nom utilisateur affiché dans header :', this.nomUtilisateur);
+    this.email = localStorage.getItem('email') || '';
+    console.log('Email :', this.email);
+
+
+
 
   }
 

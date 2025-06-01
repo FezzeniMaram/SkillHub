@@ -89,15 +89,28 @@
               <strong>{{ avis.auteur }}</strong>
               <span class="type">{{ avis.typeAuteur }}</span>
             </div>
-            <p class="comment-text">{{ avis.commentaireAvis }}</p>
 
-            <div class="comment-actions">
-              <button *ngIf="peutModifierCommentaire(avis)" class="edit-btn" (click)="modifierAvis(avis)">Modifier</button>
-              <button *ngIf="peutSupprimerCommentaire(avis)" class="delete-btn" (click)="supprimerAvis(avis.idAvis)">Supprimer</button>
+            <!-- Édition du commentaire -->
+            <div *ngIf="avisEnCoursDeModification?.idAvis === avis.idAvis; else affichageNormal">
+              <textarea [(ngModel)]="avisEnCoursDeModification.commentaireAvis" rows="2" class="edit-comment-area"></textarea>
+              <button class="save-edit-btn" (click)="enregistrerModificationAvis()">Enregistrer</button>
+              <button class="cancel-edit-btn" (click)="annulerModificationAvis()">Annuler</button>
             </div>
-          </div>
 
+            <!-- Affichage normal du commentaire -->
+            <ng-template #affichageNormal>
+              <p class="comment-text">{{ avis.commentaireAvis }}</p>
+            </ng-template>
+
+
+            <div class="comment-actions" *ngIf="!avisEnCoursDeModification || avisEnCoursDeModification.idAvis === avis.idAvis">
+              <button *ngIf="peutModifierCommentaire(avis)" class="edit-btn" (click)="activerEditionAvis(avis)">Modifier</button>
+              <button *ngIf="peutSupprimerCommentaire(avis)" class="delete-btn" (click)="supprimerAvis(avis.idAvis)"> Supprimer </button>
+            </div>
+
+          </div>
         </div>
+
 
       </div>
     </section>

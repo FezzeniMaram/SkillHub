@@ -23,7 +23,7 @@
         <h3>Autres Chapitres</h3>
         <ul>
           <li *ngFor="let ch of autresChapitres" [class.active]="ch.idchapitre === chapitre.idchapitre">
-            <a [routerLink]="['/chapitre', ch.idchapitre]">{{ ch.titreChapitre }}</a>
+            <a (click)="reloadToChapitre(ch.idchapitre)">{{ ch.titreChapitre }}</a>
           </li>
         </ul>
 

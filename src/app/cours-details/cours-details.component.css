@@ -318,3 +318,48 @@ p {
   cursor: pointer;
   text-decoration: underline;
 }
+/* Zone de modification du commentaire */
+.edit-comment-area {
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  background-color: #fffef8;
+}
+
+/* Boutons d’action pour enregistrer ou annuler la modification */
+.save-edit-btn, .cancel-edit-btn {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  margin-right: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Enregistrer */
+.save-edit-btn {
+  background-color: #7d59f3;
+  color: white;
+}
+.save-edit-btn:hover {
+  background-color: #6844e4;
+  transform: translateY(-1px);
+}
+
+/* Annuler */
+.cancel-edit-btn {
+  background-color: #e0e0e0;
+  color: #333;
+}
+.cancel-edit-btn:hover {
+  background-color: #cfcfcf;
+  transform: translateY(-1px);
+}
+

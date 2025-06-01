@@ -16,7 +16,7 @@ export class CoursDetailsComponent implements OnInit {
   avisList: any[] = [];
 
   nouveauCommentaire: string = '';
-  utilisateurEmail = localStorage.getItem('email');
+  email = localStorage.getItem('email');
   utilisateurRole = localStorage.getItem('role');
 
   constructor(
@@ -32,6 +32,9 @@ export class CoursDetailsComponent implements OnInit {
     this.loadCoursDetails();
     this.loadChapitres();
     this.loadAvis();
+    console.log('Email connecté :', this.email);
+    console.log('Rôle connecté :', this.utilisateurRole);
+
 
   }
 
@@ -47,6 +50,31 @@ export class CoursDetailsComponent implements OnInit {
     });
 
 
+  }
+  avisEnCoursDeModification: any = null; // Pour suivre le commentaire modifié
+
+// Activer l'édition pour un avis donné
+  activerEditionAvis(avis: any){
+    this.avisEnCoursDeModification =  avis;
+  }
+
+// Annuler la modification
+  annulerModificationAvis(): void {
+    this.avisEnCoursDeModification = null;
+  }
+
+// Enregistrer la modification
+  enregistrerModificationAvis(): void {
+    const modif = this.avisEnCoursDeModification.commentaireAvis.trim();
+    if (!modif) return;
+
+    this.avisService.updateAvis(this.avisEnCoursDeModification.idAvis, modif).subscribe({
+      next: () => {
+        this.avisEnCoursDeModification = null;
+        this.loadAvis();
+      },
+      error: () => alert("❌ Erreur lors de la modification.")
+    });
   }
 
   loadChapitres(): void {
@@ -124,7 +152,7 @@ export class CoursDetailsComponent implements OnInit {
           });
 
           // ➤ Vérification utilisateur connecté
-          console.log('👤 Utilisateur connecté :', this.utilisateurEmail, '| Rôle:', this.utilisateurRole);
+          console.log('👤 Utilisateur connecté :', this.email, '| Rôle:', this.utilisateurRole);
         }
       },
       error: err => {
@@ -149,14 +177,7 @@ export class CoursDetailsComponent implements OnInit {
     }
   }
 
-  modifierAvis(avis: any): void {
-    const modif = prompt('Modifier votre commentaire :', avis.commentaireAvis);
-    if (modif !== null) {
-      this.avisService.updateAvis(avis.idAvis, modif).subscribe({
-        next: () => this.loadAvis()
-      });
-    }
-  }
+
 
   supprimerAvis(id: number): void {
     if (confirm('Voulez-vous supprimer ce commentaire ?')) {
@@ -168,16 +189,23 @@ export class CoursDetailsComponent implements OnInit {
 
   // ✅ L’utilisateur peut modifier uniquement son propre commentaire
   peutModifierCommentaire(avis: any): boolean {
-    return avis.emailAuteur === this.utilisateurEmail;
+    return avis.emailAuteur === this.email;
   }
 
   peutSupprimerCommentaire(avis: any): boolean {
-    return (
-      avis.emailAuteur === this.utilisateurEmail ||
-      (this.utilisateurRole === 'TUTEUR' &&
-        this.course.tuteur?.emailTuteur === this.utilisateurEmail)
-    );
+    // Cas 1 : l'étudiant peut supprimer son propre avis
+    if (avis.emailAuteur === this.email) return true;
+
+    // Cas 2 : le tuteur du cours peut supprimer tous les avis du cours
+    if (
+      this.utilisateurRole === 'TUTEUR' &&
+      this.course &&
+      this.course.emailTuteur === this.email
+    ) return true;
+
+    return false;
   }
+
 
   consulterChapitre(idChapitre: number): void {
     this.router.navigate(['/chapitre', idChapitre]);

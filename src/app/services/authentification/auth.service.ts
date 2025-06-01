@@ -11,6 +11,7 @@ export interface AuthResponse {
   id: number;
   gender: string;
   dateNaissance: string;
+  email : string;
 }
 
 export interface RegisterResponse {
@@ -62,6 +63,9 @@ export class AuthService {
 
   getUserId(): number {
     return Number(localStorage.getItem('userId'));
+  }
+  getemail(): String {
+    return String(localStorage.getItem('email'));
   }
 
 }

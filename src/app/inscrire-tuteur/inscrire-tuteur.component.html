@@ -1,65 +1,80 @@
 <div class="login-container">
   <div class="login-box">
-    <h2>Inscription Tuteur</h2>
-    <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <!-- Colonne gauche : logo -->
+    <div class="login-left">
+      <img src="assets/images/SkillHub.png" alt="Logo SkillHub">
+    </div>
 
-      <!-- Nom -->
-      <div class="form-group">
-        <label for="nomTuteur">Nom</label>
-        <input type="text" id="nomTuteur" name="nomTuteur" [(ngModel)]="tuteur.nomTuteur" required
-               pattern="^[^0-9]*$" #nomCtrl="ngModel"/>
-        <div class="error-message" *ngIf="nomCtrl.invalid && nomCtrl.touched">
-          <small *ngIf="nomCtrl.errors?.['required']">Le nom est requis.</small>
-          <small *ngIf="nomCtrl.errors?.['pattern']">Le nom ne doit pas contenir de chiffres.</small>
+    <!-- Colonne droite : formulaire -->
+    <div class="login-right">
+      <h2>Inscription Tuteur</h2>
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+
+        <!-- Nom -->
+        <div class="form-group">
+          <label for="nomTuteur">Nom</label>
+          <input type="text" id="nomTuteur" name="nomTuteur" [(ngModel)]="tuteur.nomTuteur"
+                 required pattern="^[^0-9]*$" #nomCtrl="ngModel" />
+          <div class="error-message" *ngIf="nomCtrl.invalid && nomCtrl.touched">
+            <small *ngIf="nomCtrl.errors?.['required']">Le nom est requis.</small>
+            <small *ngIf="nomCtrl.errors?.['pattern']">Le nom ne doit pas contenir de chiffres.</small>
+          </div>
         </div>
-      </div>
 
-      <!-- Email -->
-      <div class="form-group">
-        <label for="emailTuteur">Email</label>
-        <input type="email" id="emailTuteur" name="emailTuteur" [(ngModel)]="tuteur.emailTuteur" required
-               #emailCtrl="ngModel"/>
-        <div class="error-message" *ngIf="emailCtrl.invalid && emailCtrl.touched">
-          <small *ngIf="emailCtrl.errors?.['required']">L'email est requis.</small>
-          <small *ngIf="emailCtrl.errors?.['email']">Format d'email invalide.</small>
+        <!-- Email -->
+        <div class="form-group">
+          <label for="emailTuteur">Email</label>
+          <input type="email" id="emailTuteur" name="emailTuteur" [(ngModel)]="tuteur.emailTuteur"
+                 required #emailCtrl="ngModel" />
+          <div class="error-message" *ngIf="emailCtrl.invalid && emailCtrl.touched">
+            <small *ngIf="emailCtrl.errors?.['required']">L'email est requis.</small>
+            <small *ngIf="emailCtrl.errors?.['email']">Format d'email invalide.</small>
+          </div>
         </div>
-      </div>
 
-      <!-- Mot de passe -->
-      <div class="form-group">
-        <label for="motPasseTuteur">Mot de passe</label>
-        <input type="password" id="motPasseTuteur" name="motPasseTuteur" [(ngModel)]="tuteur.motPasseTuteur" required
-               [pattern]="'^(?=\\S{8,})\\S+$'" #mdpCtrl="ngModel" />
-        <div class="error-message" *ngIf="mdpCtrl.invalid && mdpCtrl.touched">
-          <small *ngIf="mdpCtrl.errors?.['required']">Le mot de passe est requis.</small>
-          <small *ngIf="mdpCtrl.errors?.['pattern']">Au moins 8 caractères sans espaces.</small>
+        <!-- Mot de passe -->
+        <div class="form-group">
+          <label for="motPasseTuteur">Mot de passe</label>
+          <input type="password" id="motPasseTuteur" name="motPasseTuteur"
+                 [(ngModel)]="tuteur.motPasseTuteur"
+                 required [pattern]="'^(?=\\S{8,})\\S+$'" #mdpCtrl="ngModel" />
+          <div class="error-message" *ngIf="mdpCtrl.invalid && mdpCtrl.touched">
+            <small *ngIf="mdpCtrl.errors?.['required']">Le mot de passe est requis.</small>
+            <small *ngIf="mdpCtrl.errors?.['pattern']">Au moins 8 caractères sans espaces.</small>
+          </div>
         </div>
-      </div>
 
-      <!-- Date de naissance -->
-      <div class="form-group">
-        <label for="dateNaissance">Date de naissance</label>
-        <input type="date" id="dateNaissance" name="dateNaissance"
-               [(ngModel)]="tuteur.dateNaissance" required #dateCtrl="ngModel" />
-        <div class="error-message" *ngIf="dateCtrl.invalid && dateCtrl.touched">
-          <small *ngIf="dateCtrl.errors?.['required']">La date de naissance est requise.</small>
+        <!-- Date de naissance -->
+        <div class="form-group">
+          <label for="dateNaissance">Date de naissance</label>
+          <input type="date" id="dateNaissance" name="dateNaissance"
+                 [(ngModel)]="tuteur.dateNaissanceTuteur"
+                 required #dateCtrl="ngModel" />
+          <div class="error-message" *ngIf="dateCtrl.invalid && dateCtrl.touched">
+            <small *ngIf="dateCtrl.errors?.['required']">La date de naissance est requise.</small>
+          </div>
         </div>
-      </div>
 
-      <!-- Genre -->
-      <div class="form-group">
-        <label for="gender">Genre</label>
-        <select id="gender" name="gender" [(ngModel)]="tuteur.gender" required #genderCtrl="ngModel">
-          <option value="">Sélectionner</option>
-          <option value="HOMME">HOMME</option>
-          <option value="FEMME">FEMME</option>
-        </select>
-        <div class="error-message" *ngIf="genderCtrl.invalid && genderCtrl.touched">
-          <small *ngIf="genderCtrl.errors?.['required']">Le genre est requis.</small>
+        <!-- Genre -->
+        <div class="form-group">
+          <label for="gender">Genre</label>
+          <select id="gender" name="gender" [(ngModel)]="tuteur.gender" required #genderCtrl="ngModel">
+            <option value="">Sélectionner</option>
+            <option value="HOMME">HOMME</option>
+            <option value="FEMME">FEMME</option>
+          </select>
+          <div class="error-message" *ngIf="genderCtrl.invalid && genderCtrl.touched">
+            <small *ngIf="genderCtrl.errors?.['required']">Le genre est requis.</small>
+          </div>
         </div>
-      </div>
 
-      <button type="submit" class="login-btn" [disabled]="form.invalid">S'inscrire</button>
-    </form>
+        <button type="submit" class="login-btn" [disabled]="form.invalid">S'inscrire</button>
+      </form>
+      <div class="signup-link">
+        <p>Déjà un compte ?
+          <a routerLink="/connexion">Se connecter</a>
+        </p>
+      </div>
+    </div>
   </div>
 </div>

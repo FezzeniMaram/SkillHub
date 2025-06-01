@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {CoursService} from "../../services/cours/cours.service";
+import { CoursService } from '../../services/cours/cours.service';
 
 @Component({
   selector: 'app-ajouter-cours',
@@ -14,6 +14,7 @@ export class AjouterCoursComponent {
   };
 
   selectedFile: File | null = null;
+  fileInputTouched = false;
 
   constructor(
     private coursService: CoursService,
@@ -46,12 +47,11 @@ export class AjouterCoursComponent {
     this.coursService.ajouterCours(formData).subscribe({
       next: () => {
         alert('✅ Cours ajouté avec succès !');
-        this.router.navigate(['/coursTuteur']);
+        this.router.navigate(['profil/coursTuteur']);
       },
       error: () => {
         alert('❌ Erreur lors de l’ajout du cours.');
       }
-
     });
   }
 }

@@ -29,6 +29,7 @@ export class ConnexionComponent {
           localStorage.setItem('username', response.username);
           localStorage.setItem('userId', response.id.toString());
           localStorage.setItem('gender', response.gender);
+          localStorage.setItem('email', response.email);
           console.log('✅ Rôle de lutilisateur connecté :', response.role);
           this.router.navigate(['/accueil']); // ou '/accueil-compte' si c'est ça le nom exact
         }

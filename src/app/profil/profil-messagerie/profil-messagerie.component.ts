@@ -113,56 +113,61 @@ export class ProfilMessagerieComponent implements OnInit {
     this.router.navigate([`/${type}/${interlocuteurId}`]);
   }
 
-  masquerConversation(): void {
-    this.conversationService.masquerConversation(this.selectedConversationId, this.role).subscribe({
-      next: () => {
-        this.selectedConversation = null;
-        this.selectedConversationId = 0;
-        this.loadConversations();
-      },
-      error: err => console.error('Erreur masquage', err)
-    });
-  }
 
-  bloquerInterlocuteur(): void {
-    this.conversationService.bloquerUtilisateur(this.selectedConversationId, this.role).subscribe({
-      next: () => {
-        this.isBlocked = true;
-        this.loadConversations();
-      },
-      error: err => console.error('Erreur blocage', err)
-    });
-  }
-
-  debloquerInterlocuteur(): void {
-    this.conversationService.debloquerUtilisateur(this.selectedConversationId, this.role).subscribe({
-      next: () => {
-        this.aBloqueLAutre = false;
-        this.checkIfBlocked();
-      },
-      error: err => console.error("Erreur lors du déblocage", err)
-    });
-  }
-
-  checkIfBlocked(): void {
-    this.conversationService.checkIfBlocked(this.selectedConversationId, this.role).subscribe({
-      next: (res) => this.isBlocked = res.bloque,
-      error: (err) => console.error('Erreur vérification blocage', err)
-    });
-  }
-
-  aBloqueLInterlocuteur(): boolean {
-    if (!this.selectedConversation || !this.role) return false;
-    return this.role === 'ETUDIANT'
-      ? this.selectedConversation.etudiantBloqueTuteur
-      : this.selectedConversation.tuteurBloqueEtudiant;
-  }
 
   toggleMenu() {
     this.showMenu = !this.showMenu;
   }
 
-  closeMenu() {
-    this.showMenu = false;
+
+
+
+
+  // Indique si je (utilisateur courant) ai bloqué l'interlocuteur
+  aBloqueLInterlocuteur(): boolean {
+    if (!this.selectedConversation || !this.role) return false;
+
+    // Si je suis étudiant, je regarde si j'ai bloqué le tuteur
+    if (this.role === 'ETUDIANT') {
+      return !!this.selectedConversation.etudiantBloqueTuteur;
+    } else {
+      // Si je suis tuteur, je regarde si j'ai bloqué l'étudiant
+      return !!this.selectedConversation.tuteurBloqueEtudiant;
+    }
   }
+
+// Charger l'état "bloqué" (est-ce que JE suis bloqué par l'autre)
+  checkIfBlocked(): void {
+    this.conversationService.checkIfBlocked(this.selectedConversationId, this.role).subscribe({
+      next: (res) => {
+        this.isBlocked = res.bloque; // vrai si bloqué par l'interlocuteur
+      },
+      error: (err) => console.error('Erreur vérification blocage', err)
+    });
+  }
+
+// Bloquer interlocuteur
+  bloquerInterlocuteur(): void {
+    this.conversationService.bloquerUtilisateur(this.selectedConversationId, this.role).subscribe({
+      next: () => {
+        this.isBlocked = false; // j'ai bloqué, donc je ne suis pas bloqué
+        this.loadConversations();
+        this.loadConversationById(this.selectedConversationId); // rafraîchir données
+      },
+      error: (err) => console.error('Erreur blocage', err)
+    });
+  }
+
+// Débloquer interlocuteur
+  debloquerInterlocuteur(): void {
+    this.conversationService.debloquerUtilisateur(this.selectedConversationId, this.role).subscribe({
+      next: () => {
+        this.loadConversations();
+        this.loadConversationById(this.selectedConversationId); // rafraîchir données
+        this.checkIfBlocked();
+      },
+      error: (err) => console.error("Erreur lors du déblocage", err)
+    });
+  }
+
 }

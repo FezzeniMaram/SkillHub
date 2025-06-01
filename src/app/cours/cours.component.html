@@ -3,14 +3,32 @@
   <main class="main-content">
     <section class="courses-section">
       <div class="container">
+
+        <!-- Boîte de recherche -->
+        <div class="search-container">
+          <input
+            type="text"
+            placeholder="Rechercher un cours..."
+            [(ngModel)]="searchTerm"
+            (input)="filterCours()"
+            class="search-input"
+          />
+        </div>
+
+        <!-- Liste des cours filtrés -->
         <div class="grid">
           <div
             class="course-card"
-            *ngFor="let cours of coursList"
+            *ngFor="let cours of filteredCoursList"
             (click)="consulterCours(cours.idCour)"
           >
             <div class="image-container">
-              <img [src]="getImageUrl(cours.imagePath)" (error)="onImageError($event)" alt="Cours" width="100%">
+              <img
+                [src]="getImageUrl(cours.imagePath)"
+                (error)="onImageError($event)"
+                alt="Cours"
+                width="100%"
+              />
             </div>
             <div class="course-info">
               <h3 class="titre">{{ cours.titreCours }}</h3>
@@ -33,10 +51,6 @@
                 {{ cours.nomTuteur }}
               </p>
 
-
-
-
-
               <button
                 class="inscrire-btn"
                 *ngIf="role === 'ETUDIANT'"
@@ -44,12 +58,12 @@
                 [disabled]="inscrits.includes(cours.idCour)"
               >
                 <mat-icon class="add-icon">add_circle</mat-icon>
-                {{ inscrits.includes(cours.idCour) ? 'Déjà ajouté' : "Ajouter" }}
+                {{ inscrits.includes(cours.idCour) ? 'Déjà inscrire' : "Inscrire" }}
               </button>
-
             </div>
           </div>
         </div>
+
       </div>
     </section>
   </main>

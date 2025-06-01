@@ -14,7 +14,7 @@ export class InscrireTuteurComponent {
     emailTuteur: '',
     motPasseTuteur: '',
     gender: '',
-    dateNaissance: ''
+    dateNaissanceTuteur: ''
   };
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -29,7 +29,7 @@ export class InscrireTuteurComponent {
             emailTuteur: '',
             motPasseTuteur: '',
             gender: '',
-            dateNaissance: ''
+            dateNaissanceTuteur: ''
           };
           this.router.navigate(['/accueil']);
         }

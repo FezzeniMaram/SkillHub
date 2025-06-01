@@ -43,7 +43,7 @@ export class AjouterChapitreComponent implements OnInit {
       next: (res) => {
         if (res.success) {
           alert("✅ Chapitre ajouté avec succès !");
-          this.router.navigate(['/cours', this.coursId]);
+          this.router.navigate(['profil/cours', this.coursId]);
         } else {
           alert("❌ " + res.message);
         }
