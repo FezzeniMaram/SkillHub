@@ -51,7 +51,7 @@ export class CoursDetailsComponent implements OnInit {
 
 
   }
-  avisEnCoursDeModification: any = null; // Pour suivre le commentaire modifié
+  avisEnCoursDeModification: any = null;
 
 // Activer l'édition pour un avis donné
   activerEditionAvis(avis: any){
