@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class VideoService {
-  private apiUrl = 'http://localhost:8082/api/video'; // Remplacez par l'URL de votre API
-
+  private apiUrl = 'http://localhost:8082/api/video';
   constructor(private http: HttpClient) {}
 
   addVideo(videoData: FormData): Observable<any> {

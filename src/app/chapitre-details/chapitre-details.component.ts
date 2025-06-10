@@ -54,7 +54,7 @@ export class ChapitreDetailsComponent implements OnInit{
 
   onImageError(event: Event) {
     const img = event.target as HTMLImageElement;
-    img.src = 'assets/images/html-code.png'; // Image de remplacement en cas d'erreur
+    img.src = 'assets/images/html-code.png';
   }
   reloadToChapitre(id: number) {
     window.location.href = `/chapitre/${id}`;

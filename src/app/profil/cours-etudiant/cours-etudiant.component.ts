@@ -27,11 +27,11 @@ export class CoursEtudiantComponent implements OnInit {
         },
         error: (err) => {
           console.error("Erreur de chargement des cours :", err);
-          alert("Impossible de charger les cours inscrits.");
+          console.log("Impossible de charger les cours inscrits.");
         }
       });
     } else {
-      alert("Utilisateur non connecté ou ID manquant.");
+      console.log("Utilisateur non connecté ou ID manquant.");
     }
   }
 
@@ -41,7 +41,7 @@ export class CoursEtudiantComponent implements OnInit {
 
   onImageError(event: Event) {
     const img = event.target as HTMLImageElement;
-    img.src = 'assets/images/html-code.png'; // image par défaut locale
+    img.src = 'assets/images/html-code.png';
   }
 
 
@@ -54,20 +54,20 @@ export class CoursEtudiantComponent implements OnInit {
         next: (res) => {
           if (res.success) {
             this.cours = this.cours.filter(c => c.idCours !== idCours); // mise à jour de la vue
-            alert("✅ " + res.message);
+            console.log("✅ " + res.message);
             this.ngOnInit();
             const coursInscrits = this.cours.filter(c => c.idCours !== idCours).map(c => c.idCours);
             localStorage.setItem('inscrits', JSON.stringify(coursInscrits));
           } else {
-            alert("⚠ " + res.message);
+            console.log("⚠ " + res.message);
           }
         },
         error: () => {
-          alert("❌ Erreur lors de la suppression.");
+          console.log("❌ Erreur lors de la suppression.");
         }
       });
     } else {
-      alert("ID étudiant manquant.");
+      console.log("ID étudiant manquant.");
     }
   }
   consulterCours(idCour: number): void {

@@ -62,7 +62,7 @@ export class ChatComponent implements OnInit {
 
         if (this.selectedConversationId) {
           this.loadMessages(this.selectedConversationId);
-          this.checkIfBlocked(); // ⬅️ Vérifier le blocage après sélection
+          this.checkIfBlocked();
         }
       },
       error: (err) => {
@@ -123,7 +123,7 @@ export class ChatComponent implements OnInit {
       next: () => {
         this.selectedConversation = null;
         this.selectedConversationId = 0;
-        this.loadConversations(); // ⬅️ Recharge à jour
+        this.loadConversations();
       },
       error: err => console.error('Erreur masquage', err)
     });
@@ -133,7 +133,7 @@ export class ChatComponent implements OnInit {
     this.conversationService.bloquerUtilisateur(this.selectedConversationId, this.role).subscribe({
       next: () => {
         this.isBlocked = true;
-        this.loadConversations(); // ⬅️ Recharge
+        this.loadConversations();
       },
       error: err => console.error('Erreur blocage', err)
     });
@@ -142,7 +142,7 @@ export class ChatComponent implements OnInit {
   checkIfBlocked() {
     this.conversationService.checkIfBlocked(this.selectedConversationId, this.role).subscribe({
       next: (res) => {
-        console.log("🧱 Résultat checkIfBlocked =>", res); // 🔍 DOIT AFFICHER bloque: true
+        console.log("🧱 Résultat checkIfBlocked =>", res);
         this.isBlocked = res.bloque;
       },
       error: (err) => {

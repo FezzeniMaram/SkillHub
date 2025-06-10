@@ -33,30 +33,23 @@ export class AuthService {
   }
 
   constructor(private http: HttpClient) {}
-  // ✅ Connexion
   login(credentials: { email: string; password: string }): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(this.loginUrl, credentials);
   }
 
-  // ✅ Inscription Étudiant
   registerEtudiant(data: any): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.registerUrl}/etudiant`, data);
   }
 
-  // ✅ Inscription Tuteur
   registerTuteur(data: any): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.registerUrl}/tuteur`, data);
   }
 
-  // ✅ Cours inscrits pour l'étudiant connecté
   getCoursEtudiant(id: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/etudiant/getcours/${id}`);
   }
 
-  // ✅ Tu peux aussi ajouter ça plus tard :
-  // getCoursTuteur(id: number): Observable<any[]> {
-  //   return this.http.get<any[]>(`${this.baseUrl}/tuteur/getcours/${id}`);
-  // }
+
   getUserRole(): string {
     return localStorage.getItem('role') || '';
   }

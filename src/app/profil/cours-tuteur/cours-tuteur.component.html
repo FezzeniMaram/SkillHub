@@ -3,7 +3,6 @@
       <div class="container">
         <h2>Mes cours publiés</h2>
 
-        <!-- Bouton ajouter un cours -->
         <div class="ajouter-cours-btn-container">
           <button class="ajouter-cours-btn" routerLink="/profil/ajouterCours">
             <mat-icon>add_circle</mat-icon>
@@ -11,12 +10,10 @@
           </button>
         </div>
 
-        <!-- Aucun cours -->
         <div *ngIf="cours.length === 0" class="message-vide">
           <p>Vous n'avez publié aucun cours.</p>
         </div>
 
-        <!-- Liste des cours -->
         <div class="grid" *ngIf="cours.length > 0">
           <div class="course-card" *ngFor="let c of cours" (click)="voirDetailsCours(c.idCour)">
             <div class="image-container">

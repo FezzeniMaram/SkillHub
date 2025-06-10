@@ -1,16 +1,13 @@
 <div class="login-container">
   <div class="login-box">
-    <!-- Colonne gauche : logo -->
     <div class="login-left">
       <img src="assets/images/SkillHub.png" alt="Logo SkillHub">
     </div>
 
-    <!-- Colonne droite : formulaire -->
     <div class="login-right">
       <h2>Inscription Tuteur</h2>
       <form (ngSubmit)="onSubmit()" #form="ngForm">
 
-        <!-- Nom -->
         <div class="form-group">
           <label for="nomTuteur">Nom</label>
           <input type="text" id="nomTuteur" name="nomTuteur" [(ngModel)]="tuteur.nomTuteur"
@@ -21,7 +18,6 @@
           </div>
         </div>
 
-        <!-- Email -->
         <div class="form-group">
           <label for="emailTuteur">Email</label>
           <input type="email" id="emailTuteur" name="emailTuteur" [(ngModel)]="tuteur.emailTuteur"
@@ -32,7 +28,6 @@
           </div>
         </div>
 
-        <!-- Mot de passe -->
         <div class="form-group">
           <label for="motPasseTuteur">Mot de passe</label>
           <input type="password" id="motPasseTuteur" name="motPasseTuteur"
@@ -44,7 +39,6 @@
           </div>
         </div>
 
-        <!-- Date de naissance -->
         <div class="form-group">
           <label for="dateNaissance">Date de naissance</label>
           <input type="date" id="dateNaissance" name="dateNaissance"
@@ -55,7 +49,6 @@
           </div>
         </div>
 
-        <!-- Genre -->
         <div class="form-group">
           <label for="gender">Genre</label>
           <select id="gender" name="gender" [(ngModel)]="tuteur.gender" required #genderCtrl="ngModel">

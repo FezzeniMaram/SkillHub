@@ -42,7 +42,7 @@ export class CoursDetailsComponent implements OnInit {
     this.coursService.getCoursById(this.courseId).subscribe({
       next: res => {
         if (res.success) this.course = res.data;
-        console.log("Détails du cours reçu :", this.course); // ✅ Ajout ici
+        console.log("Détails du cours reçu :", this.course);
       },
       error: err => {
         console.error('Erreur chargement cours:', err);
@@ -53,18 +53,15 @@ export class CoursDetailsComponent implements OnInit {
   }
   avisEnCoursDeModification: any = null;
 
-// Activer l'édition pour un avis donné
   activerEditionAvis(avis: any){
     this.avisEnCoursDeModification =  avis;
   }
 
-// Annuler la modification
   annulerModificationAvis(): void {
     this.avisEnCoursDeModification = null;
   }
 
-// Enregistrer la modification
-  enregistrerModificationAvis(): void {
+ enregistrerModificationAvis(): void {
     const modif = this.avisEnCoursDeModification.commentaireAvis.trim();
     if (!modif) return;
 
@@ -117,7 +114,6 @@ export class CoursDetailsComponent implements OnInit {
     const encodedPath = encodeURIComponent(imagePath.replace('images/', ''));
     const fullUrl = `http://localhost:8082/api/files/images/${encodedPath}`;
 
-    //console.log('🖼️ URL image générée :', fullUrl);
 
     return fullUrl;
   }
@@ -128,7 +124,6 @@ export class CoursDetailsComponent implements OnInit {
     img.src = 'assets/images/html-code.png';
   }
 
-  // 🔁 Commentaires / Avis
   loadAvis(): void {
     this.avisService.getAvisByCours(this.courseId).subscribe({
       next: res => {
@@ -140,7 +135,6 @@ export class CoursDetailsComponent implements OnInit {
             const email = avis.emailAuteur || '';
             const type = avis.typeAuteur || 'Inconnu';
 
-            // ➤ Debug console
            console.log(`💬 Avis: ID=${avis.idAvis}, Auteur=${auteur}, Email=${email}, Type=${type}`);
 
             return {
@@ -151,7 +145,6 @@ export class CoursDetailsComponent implements OnInit {
             };
           });
 
-          // ➤ Vérification utilisateur connecté
           console.log('👤 Utilisateur connecté :', this.email, '| Rôle:', this.utilisateurRole);
         }
       },
@@ -187,16 +180,13 @@ export class CoursDetailsComponent implements OnInit {
     }
   }
 
-  // ✅ L’utilisateur peut modifier uniquement son propre commentaire
   peutModifierCommentaire(avis: any): boolean {
     return avis.emailAuteur === this.email;
   }
 
   peutSupprimerCommentaire(avis: any): boolean {
-    // Cas 1 : l'étudiant peut supprimer son propre avis
     if (avis.emailAuteur === this.email) return true;
 
-    // Cas 2 : le tuteur du cours peut supprimer tous les avis du cours
     if (
       this.utilisateurRole === 'TUTEUR' &&
       this.course &&
@@ -212,8 +202,10 @@ export class CoursDetailsComponent implements OnInit {
   }
 
   peutGererChapitre(): boolean {
-    return this.utilisateurRole === 'TUTEUR' || this.utilisateurRole === 'ADMIN';
+    const emailConnecte = localStorage.getItem('email');
+    return !!emailConnecte && emailConnecte === this.course?.emailTuteur;
   }
+
 
   voirProfilTuteur(idTuteur: number): void {
     console.log("ID tuteur:", idTuteur);

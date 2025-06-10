@@ -12,7 +12,7 @@ export class InscrireEtudiantComponent {
     nomEtudiant: '',
     emailEtudiant: '',
     motPasseEtudiant: '',
-    gender: '',                        // <-- ajouté
+    gender: '',
     dateNaissanceEtudiant: ''
   };
 
@@ -27,7 +27,7 @@ export class InscrireEtudiantComponent {
             nomEtudiant: '',
             emailEtudiant: '',
             motPasseEtudiant: '',
-            gender: '',                        // <-- ajouté
+            gender: '',
             dateNaissanceEtudiant: ''
           };
           this.router.navigate(['/accueil']);

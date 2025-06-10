@@ -94,7 +94,6 @@ export class CoursDetaillsComponent implements OnInit {
     const encodedPath = encodeURIComponent(imagePath.replace('images/', ''));
     const fullUrl = `http://localhost:8082/api/files/images/${encodedPath}`;
 
-    //console.log('🖼️ URL image générée :', fullUrl);
 
     return fullUrl;
   }
@@ -148,7 +147,7 @@ export class CoursDetaillsComponent implements OnInit {
           this.loadAvis();
         },
         error: () => {
-          alert("❌ Erreur lors de l'ajout.");
+          console.log("❌ Erreur lors de l'ajout.");
         }
       });
     }
@@ -171,7 +170,6 @@ export class CoursDetaillsComponent implements OnInit {
     }
   }
 
-  // ✅ L’utilisateur peut modifier uniquement son propre commentaire
   peutModifierCommentaire(avis: any): boolean {
     return avis.emailAuteur === this.utilisateurEmail;
   }
@@ -194,10 +192,8 @@ export class CoursDetaillsComponent implements OnInit {
     this.avisEnCoursDeModification = null;
   }
   peutSupprimerCommentaire(avis: any): boolean {
-    // Cas 1 : l'étudiant peut supprimer son propre avis
     if (avis.emailAuteur === this.email) return true;
 
-    // Cas 2 : le tuteur du cours peut supprimer tous les avis du cours
     if (
       this.utilisateurRole === 'TUTEUR' &&
       this.course &&

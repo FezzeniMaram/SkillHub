@@ -47,7 +47,6 @@ p {
   color: #666;
 }
 
-/* Image du cours */
 .image-container {
   margin: 25px 0;
   text-align: center;
@@ -105,7 +104,6 @@ p {
   background-color: #e44848;
 }
 
-/* Ajouter un chapitre */
 .add-chapter-btn-container {
   margin-top: 30px;
   text-align: right;
@@ -138,7 +136,6 @@ p {
   margin-top: 10px;
 }
 
-/* Base style des boutons */
 .chapter-actions button {
   display: flex;
   align-items: center;
@@ -153,12 +150,10 @@ p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Icônes Material */
 .chapter-actions button mat-icon {
   font-size: 20px;
 }
 
-/* Modifier bouton */
 .modifier-btn {
   background-color: #fdd85d;
   color: #333;
@@ -173,7 +168,6 @@ p {
   transform: translateY(1px);
 }
 
-/* Supprimer bouton */
 .supprimer-btn {
   background-color: #ff5c5c;
   color: white;
@@ -318,7 +312,6 @@ p {
   cursor: pointer;
   text-decoration: underline;
 }
-/* Zone de modification du commentaire */
 .edit-comment-area {
   width: 100%;
   resize: none;
@@ -331,7 +324,6 @@ p {
   background-color: #fffef8;
 }
 
-/* Boutons d’action pour enregistrer ou annuler la modification */
 .save-edit-btn, .cancel-edit-btn {
   font-size: 13px;
   padding: 6px 12px;
@@ -343,7 +335,6 @@ p {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Enregistrer */
 .save-edit-btn {
   background-color: #7d59f3;
   color: white;
@@ -353,7 +344,7 @@ p {
   transform: translateY(-1px);
 }
 
-/* Annuler */
+
 .cancel-edit-btn {
   background-color: #e0e0e0;
   color: #333;

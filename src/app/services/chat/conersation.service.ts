@@ -10,14 +10,12 @@ export class ConversationService {
 
   constructor(private http: HttpClient) {}
 
-  // 🔹 Récupérer les conversations d’un utilisateur (étudiant ou tuteur)
   getConversationsForUser(userId: number, role: string): Observable<any[]> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get<any[]>(`${this.baseUrl}/user/${userId}?role=${role}`, { headers });
   }
 
-  // 🔹 Démarrer une nouvelle conversation entre un étudiant et un tuteur
   startConversation(etudiantId: number, tuteurId: number): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -27,7 +25,6 @@ export class ConversationService {
 
 
 
-  // 🔹 Masquer une conversation pour un rôle
   masquerConversation(conversationId: number, role: string): Observable<void> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -35,10 +32,7 @@ export class ConversationService {
 
   }
 
-  // 🔹 Bloquer un utilisateur dans une conversation
 
-
-  // 🔹 Récupérer une conversation par son ID
   getConversationById(id: number): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

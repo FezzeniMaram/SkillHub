@@ -1,4 +1,3 @@
-/* ========== Header ========== */
 .header {
   background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -12,7 +11,7 @@
   padding-right: 50px;
 }
 
-/* ========== Logo ========== */
+
 .logo {
   cursor: pointer;
 }
@@ -21,7 +20,6 @@
   width: 120px;
 }
 
-/* ========== Navigation Links ========== */
 .nav-links {
   display: flex;
   gap: 20px;
@@ -52,7 +50,6 @@
   color: white !important;
 }
 
-/* ========== Profil ========== */
 .profile-link {
   margin-right: 100px;
 }
@@ -75,7 +72,6 @@
   transform: translateY(-2px);
 }
 
-/* ✅ Icône image profil PNG */
 .profile-icon {
   width: 32px;
   height: 32px;
@@ -84,7 +80,6 @@
   background-color: white;
 }
 
-/* ========== Icônes générales ========== */
 mat-icon {
   color: #FF5A5A;
 }

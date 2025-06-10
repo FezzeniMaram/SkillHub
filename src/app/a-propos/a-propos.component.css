@@ -15,8 +15,8 @@
 
 .about-image img {
   width: 100%;
-  max-width: 900px; /* 🆙 augmenté de 500px à 600px */
-  transform: scale(1.05); /* optionnel : léger agrandissement */
+  max-width: 900px;
+  transform: scale(1.05);
   transition: transform 0.3s ease;
 }
 .about-image img:hover {

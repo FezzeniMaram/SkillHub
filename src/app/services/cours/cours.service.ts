@@ -9,12 +9,10 @@ export class CoursService {
 
   constructor(private http: HttpClient) {}
 
-  // ✅ Tous les cours (déjà existant)
   getAllCours(): Observable<any> {
     return this.http.get(`${this.baseUrl}/cours/getAllCours`);
   }
 
-  // ✅ Cours inscrits d’un étudiant connecté
   getCoursEtudiant(idEtudiant: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/etudiant/getcours/${idEtudiant}`);
   }

@@ -26,11 +26,11 @@ export class CoursTuteurComponent implements OnInit {
           if (res.success) {
             this.cours = res.data;
           } else {
-            alert("Aucun cours publié trouvé.");
+            console.log("Aucun cours publié trouvé.");
           }
         },
         error: () => {
-          alert("Erreur lors du chargement des cours.");
+          console.log("Erreur lors du chargement des cours.");
         }
       });
     }
@@ -50,24 +50,24 @@ export class CoursTuteurComponent implements OnInit {
   }
 
   modifierCours(event: Event, idCours: number): void {
-    event.stopPropagation(); // Empêche la navigation vers les détails
+    event.stopPropagation();
     this.router.navigate(['/profil/modifierCours', idCours]);
   }
 
   supprimerCours(event: Event, idCours: number): void {
-    event.stopPropagation(); // Empêche la navigation vers les détails
+    event.stopPropagation();
     if (confirm("Êtes-vous sûr de vouloir supprimer ce cours ?")) {
       this.coursService.supprimerCours(idCours).subscribe({
         next: (res) => {
           if (res.success) {
             this.cours = this.cours.filter(c => c.idCour !== idCours);
-            alert("✅ Cours supprimé avec succès !");
+            console.log("✅ Cours supprimé avec succès !");
           } else {
-            alert("❌ " + res.message);
+            console.log("❌ " + res.message);
           }
         },
         error: () => {
-          alert("❌ Erreur lors de la suppression du cours.");
+          console.log("❌ Erreur lors de la suppression du cours.");
         }
       });
     }

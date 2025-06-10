@@ -22,7 +22,7 @@ export class InscrireTuteurComponent {
   onSubmit() {
     this.authService.registerTuteur(this.tuteur).subscribe({
       next: (res) => {
-        alert(res.message); // Affiche le message du backend
+        alert(res.message);
         if (res.success) {
           this.tuteur = {
             nomTuteur: '',

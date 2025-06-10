@@ -1,10 +1,8 @@
-/* Reset */
 html, body {
   height: 100%;
   margin: 0;
 }
 
-/* Structure principale */
 .page-container {
   display: flex;
   flex-direction: column;
@@ -17,7 +15,6 @@ html, body {
   background: #f9f9f9;
 }
 
-/* Section formulaire */
 .ajouter-cours-section,
 .ajouter-chapitre-section {
   display: flex;
@@ -25,7 +22,6 @@ html, body {
   align-items: center;
 }
 
-/* Conteneur du formulaire */
 .form-container {
   background-color: white;
   padding: 30px 40px;
@@ -35,14 +31,13 @@ html, body {
   width: 100%;
 }
 
-/* Titre */
+
 h2 {
   text-align: center;
   color: #7d59f3;
   margin-bottom: 30px;
 }
 
-/* Groupes de champs */
 .form-group {
   margin-bottom: 20px;
   display: flex;
@@ -55,7 +50,6 @@ label {
   color: #333;
 }
 
-/* Inputs et Textareas */
 input[type="text"],
 textarea,
 input[type="file"],
@@ -75,7 +69,7 @@ select:focus {
   outline: none;
 }
 
-/* Input spécial file */
+
 input[type="file"] {
   background-color: #fffbea;
   border: 2px dashed #fdd85d;
@@ -86,7 +80,6 @@ input[type="file"]:hover {
   background-color: #fff2c7;
 }
 
-/* Affichage du fichier sélectionné */
 .file-name {
   margin-top: 8px;
   font-size: 14px;
@@ -94,7 +87,6 @@ input[type="file"]:hover {
   font-style: italic;
 }
 
-/* Bouton Ajouter */
 .ajouter-btn {
   background-color: #fdd85d;
   color: #333;
@@ -109,7 +101,7 @@ input[type="file"]:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px; /* espace entre l'icône et le texte */
+  gap: 8px;
 }
 
 .ajouter-btn:hover {
@@ -117,13 +109,11 @@ input[type="file"]:hover {
   transform: translateY(-2px);
 }
 
-/* Icône dans le bouton */
 .btn-icon {
   font-size: 22px;
   vertical-align: middle;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .form-container {
     padding: 20px;

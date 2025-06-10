@@ -1,10 +1,9 @@
-// src/app/models/tuteur.model.ts
 export class Tuteur {
   idTuteur: number;
   nomTuteur: string;
   emailTuteur: string;
   motPasseTuteur: string;
-  role: string; // "tuteur" ou autre rôle, si nécessaire
+  role: string;
 
   constructor(
     idTuteur: number,

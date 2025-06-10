@@ -1,4 +1,3 @@
-/* Structure de la page */
 html, body {
   height: 100%;
   margin: 0;
@@ -20,14 +19,12 @@ html, body {
   margin: auto;
 }
 
-/* Titre */
 h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #333;
 }
 
-/* Bouton Ajouter un cours */
 .ajouter-cours-btn-container {
   display: flex;
   justify-content: flex-end;
@@ -53,7 +50,6 @@ h2 {
   background-color: #e6c148;
 }
 
-/* Grille des cours */
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +57,6 @@ h2 {
   justify-content: center;
 }
 
-/* Carte de cours */
 .course-card {
   background-color: white;
   border-radius: 12px;
@@ -75,7 +70,6 @@ h2 {
   transform: translateY(-5px);
 }
 
-/* Image du cours */
 .image-container {
   height: 160px;
   overflow: hidden;
@@ -87,7 +81,6 @@ h2 {
   object-fit: cover;
 }
 
-/* Info cours */
 .course-info {
   padding: 15px;
   text-align: left;
@@ -104,7 +97,6 @@ h2 {
   color: #555;
 }
 
-/* Message si aucun cours */
 .message-vide {
   text-align: center;
   color: #777;
@@ -150,7 +142,6 @@ h2 {
 .supprimer-btn:hover {
   background-color: #e04545;
 }
-/* Carte de cours */
 .course-card {
   background-color: white;
   border-radius: 12px;
@@ -158,7 +149,7 @@ h2 {
   width: 280px;
   overflow: hidden;
   transition: transform 0.3s ease;
-  cursor: pointer; /* 👈 Curseur de type pointeur ajouté ici */
+  cursor: pointer;
 }
 
 .course-card:hover {

@@ -1,9 +1,7 @@
-/* Scroll fluide */
 html {
   scroll-behavior: smooth;
 }
 
-/* ========== Section Hero ========== */
 
 .hero-content {
   display: flex;
@@ -54,7 +52,7 @@ html {
 }
 
 .title .highlight {
-  color: #7D59F3; /* Nouveau bleu violet */
+  color: #7D59F3;
 }
 
 .description {
@@ -71,10 +69,9 @@ html {
   display: inline-block;
   transition: all 0.3s ease-in-out;
   font-size: 1rem;
-  box-shadow: 0 4px 10px rgba(125, 89, 243, 0.3); /* ombre subtile */
+  box-shadow: 0 4px 10px rgba(125, 89, 243, 0.3);
 }
 
-/* Bouton Connexion (rose) */
 .btn.primary {
   background-color: #FF7070;
   color: white;
@@ -92,7 +89,6 @@ html {
   box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
 }
 
-/* Bouton Inscrire (border + texte rose) */
 .btn.secondary {
   background-color: transparent;
   border: 2px solid #FF7070;
@@ -134,7 +130,7 @@ html {
   position: absolute;
   bottom: -15px;
   left: -20px;
-  background-color: #7D59F3; /* Nouveau bleu violet */
+  background-color: #7D59F3;
   color: white;
   padding: 10px 15px;
   border-radius: 50px;
@@ -179,7 +175,6 @@ html {
   transform: scale(1.05);
 }
 
-/* ========== Section Services ========== */
 .services {
   padding: 80px 20px;
   background-color: #ffffff;
@@ -229,7 +224,6 @@ html {
   background-color: #FF7070;
 }
 
-/* ========== Section À propos ========== */
 .about-modern-section {
   padding: 80px 20px;
   background-color: #fff;
@@ -277,7 +271,6 @@ html {
   line-height: 1.6;
 }
 
-/* ========== Section Contact ========== */
 .contact {
   background: #f4f4f4;
   padding: 80px 20px;
@@ -322,7 +315,6 @@ html {
   background: #FF5A5A;
 }
 
-/* ========== Responsive Design ========== */
 @media (max-width: 768px) {
   .hero-content,
   .about-modern-container {
@@ -343,7 +335,6 @@ html {
     text-align: center;
   }
 }
-/* Section Statistiques */
 .statistics {
   padding: 80px 20px;
   background-color: #f9f9f9;
@@ -372,7 +363,6 @@ html {
   color: #555;
 }
 
-/* Section Avis utilisateurs */
 .testimonials {
   padding: 80px 20px;
   background-color: #fff;

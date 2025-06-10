@@ -29,7 +29,7 @@ export class AjouterChapitreComponent implements OnInit {
 
   ajouterChapitre(): void {
     if (!this.titreChapitre || !this.contenuChapitre || !this.selectedFile) {
-      alert("Tous les champs sont requis.");
+      console.log("Tous les champs sont requis.");
       return;
     }
 
@@ -42,14 +42,14 @@ export class AjouterChapitreComponent implements OnInit {
     this.chapitreService.addChapitreWithVideo(formData).subscribe({
       next: (res) => {
         if (res.success) {
-          alert("✅ Chapitre ajouté avec succès !");
+          console.log("✅ Chapitre ajouté avec succès !");
           this.router.navigate(['profil/cours', this.coursId]);
         } else {
-          alert("❌ " + res.message);
+          console.log("❌ " + res.message);
         }
       },
       error: () => {
-        alert("❌ Une erreur est survenue.");
+        console.log("❌ Une erreur est survenue.");
       }
     });
   }

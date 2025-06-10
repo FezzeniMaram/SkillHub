@@ -10,7 +10,7 @@ import { ChapitreService } from '../services/chapitre/chapitre.service';
 export class ModifierChapitreComponent implements OnInit {
 
   chapitreId!: number;
-  idCour!: number; // ✅ ID du cours stocké ici
+  idCour!: number;
 
   chapitre: any = {
     titreChapitre: '',
@@ -29,14 +29,12 @@ export class ModifierChapitreComponent implements OnInit {
     this.chargerChapitre();
   }
 
-  // ✅ Charger les données du chapitre
   chargerChapitre(): void {
     this.chapitreService.getChapitreById(this.chapitreId).subscribe({
       next: res => {
         if (res.success) {
           this.chapitre = res.data;
 
-          // ✅ Stocker l’ID du cours ici
           if (res.data.cours && res.data.cours.idCour) {
             this.idCour = res.data.cours.idCour;
           }
@@ -48,7 +46,6 @@ export class ModifierChapitreComponent implements OnInit {
     });
   }
 
-  // ✅ Modifier le chapitre
   modifierChapitre(): void {
     this.chapitreService.updateChapitre(this.chapitreId, this.chapitre).subscribe({
       next: res => {

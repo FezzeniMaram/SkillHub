@@ -2,7 +2,6 @@
   <app-header></app-header>
 
   <main class="conversation-main">
-    <!-- 🟣 Sidebar des conversations -->
     <div class="sidebar">
       <div *ngFor="let convo of conversations"
            class="conversation-item"
@@ -24,7 +23,6 @@
 
     <!-- 🔵 Fenêtre de chat -->
     <div class="chat-window" *ngIf="selectedConversationId">
-      <!-- 🟡 En-tête -->
       <div class="chat-header">
         <div class="left-info">
           <img
@@ -35,7 +33,6 @@
           <span class="chat-user">{{ selectedConversation?.interlocuteurNom }}</span>
         </div>
 
-        <!-- Menu 3 points -->
         <div class="menu-button">
           <button mat-icon-button [matMenuTriggerFor]="chatMenu">
             <mat-icon>more_vert</mat-icon>
@@ -57,7 +54,6 @@
         </div>
       </div>
 
-      <!-- 🔴 Message si bloqué -->
       <div *ngIf="isBlocked" class="blocked-warning">
         ⚠️ Vous avez été bloqué dans cette conversation.
       </div>
@@ -74,7 +70,6 @@
         </div>
       </div>
 
-      <!-- ✍️ Footer d'envoi -->
       <div class="chat-footer" [class.disabled]="isBlocked">
         <ng-container *ngIf="!isBlocked; else blockedNotice">
           <input [(ngModel)]="newMessage" type="text" placeholder="Envoyer un message..." />

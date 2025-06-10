@@ -15,7 +15,7 @@ export class TuteurComponent implements OnInit {
   coursPublies: any[] = [];
   nombreCours: number = 0;
   idEtudiant: number = 0;
-  genderTuteur: string = 'HOMME'; // valeur par défaut
+  genderTuteur: string = 'HOMME';
 
   constructor(
     private route: ActivatedRoute,

@@ -5,12 +5,11 @@
 
   <div class="nav-links">
     <a href="/accueil" mat-button><mat-icon>home</mat-icon> Accueil</a>
-    <a routerLink="/cours" mat-button><mat-icon>school</mat-icon> Cours</a>
+    <a *ngIf="isConnected" routerLink="/cours" mat-button><mat-icon>school</mat-icon> Cours</a>
     <a href="/#about" mat-button><mat-icon>info</mat-icon> À propos</a>
     <a href="/#contact" mat-button><mat-icon>email</mat-icon> Contact</a>
   </div>
 
-  <!-- Bouton Profil -->
   <div class="profile-link"  *ngIf="isConnected" >
     <a mat-button [routerLink]="['/profil/infos']">
       &nbsp;&nbsp;&nbsp; Profil &nbsp;&nbsp;&nbsp;

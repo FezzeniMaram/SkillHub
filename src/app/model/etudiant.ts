@@ -1,10 +1,8 @@
-// src/app/models/etudiant.model.ts
 export class Etudiant {
     nomEtudiant: string;
     emailEtudiant: string;
     motPasseEtudiant: string;
-    role: string; // "etudiant" ou "tuteur"
-
+    role: string;
     constructor(nomEtudiant: string, emailEtudiant: string, motPasseEtudiant: string, role: string) {
         this.nomEtudiant = nomEtudiant;
         this.emailEtudiant = emailEtudiant;

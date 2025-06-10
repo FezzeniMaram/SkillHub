@@ -1,4 +1,4 @@
-/* Conteneur principal centré */
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -7,7 +7,7 @@
   background-color: #f4f4f4;
 }
 
-/* Boîte contenant le logo + formulaire */
+
 .login-box {
   display: flex;
   background-color: #fff;
@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-/* Partie gauche : logo */
+
 .login-left {
   flex: 1;
   background-color: #ffF;
@@ -34,7 +34,6 @@
   max-height: 250px;
 }
 
-/* Partie droite : formulaire */
 .login-right {
   flex: 1;
   padding: 40px;
@@ -47,7 +46,8 @@
   margin-bottom: 20px;
 }
 
-/* Formulaire */
+
+
 .form-group {
   margin: 15px 0;
   text-align: left;
@@ -94,7 +94,7 @@ button.login-btn:active {
   box-shadow: 0 2px 5px rgba(208, 82, 82, 0.3);
 }
 
-/* Lien inscription */
+
 .signup-link {
   margin-top: 20px;
   font-size: 1rem;
@@ -110,7 +110,6 @@ button.login-btn:active {
   text-decoration: underline;
 }
 
-/* Responsive pour mobile */
 @media (max-width: 768px) {
   .login-box {
     flex-direction: column;

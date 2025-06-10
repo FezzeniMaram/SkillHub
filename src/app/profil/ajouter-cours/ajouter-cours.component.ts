@@ -46,11 +46,11 @@ export class AjouterCoursComponent {
 
     this.coursService.ajouterCours(formData).subscribe({
       next: () => {
-        alert('✅ Cours ajouté avec succès !');
+        console.log('✅ Cours ajouté avec succès !');
         this.router.navigate(['profil/coursTuteur']);
       },
       error: () => {
-        alert('❌ Erreur lors de l’ajout du cours.');
+        console.log('❌ Erreur lors de l’ajout du cours.');
       }
     });
   }

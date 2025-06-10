@@ -1,10 +1,9 @@
 <section class="ajouter-chapitre-section">
-      <div class="form-container"> <!-- ✅ Corrigé ici : .form-container et non .container -->
+      <div class="form-container">
         <h2>Ajouter un Chapitre</h2>
 
         <form (ngSubmit)="ajouterChapitre()" enctype="multipart/form-data">
 
-          <!-- Titre du Chapitre -->
           <div class="form-group">
             <label for="titre">Titre du chapitre</label>
             <input
@@ -17,7 +16,6 @@
             />
           </div>
 
-          <!-- Contenu du Chapitre -->
           <div class="form-group">
             <label for="contenu">Contenu</label>
             <textarea
@@ -30,7 +28,6 @@
             ></textarea>
           </div>
 
-          <!-- Vidéo du Chapitre -->
           <div class="form-group">
             <label for="video">Vidéo</label>
             <input type="file" id="video" (change)="onFileChange($event)" required />
@@ -39,7 +36,6 @@
             </div>
           </div>
 
-          <!-- Bouton Ajouter -->
           <button class="ajouter-btn" type="submit">
             <mat-icon class="btn-icon">add</mat-icon>
             Ajouter le Chapitre
