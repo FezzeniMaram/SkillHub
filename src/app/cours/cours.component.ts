@@ -22,12 +22,13 @@ export class CoursComponent implements OnInit {
     private router: Router
   ) { }
 
+  // test
   ngOnInit(): void {
     this.role = localStorage.getItem('role');
     this.coursService.getAllCours().subscribe(res => {
       if (res.success) {
         this.coursList = res.data;
-        this.filteredCoursList = this.coursList; // initialiser la liste filtrée
+        this.filteredCoursList = this.coursList;
         console.log(this.coursList);
       }
     });
